@@ -16,7 +16,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const action = body?.action === "pass" ? "pass" : "bid";
+  const action: "bid" | "pass" = body?.action === "pass" ? "pass" : "bid";
   const amount = String(body?.amount ?? "").trim();
   const message = String(body?.message ?? "").trim();
   const dealerName = String(body?.dealerName ?? "").trim();
