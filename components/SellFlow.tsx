@@ -1,28 +1,28 @@
-"use client";
+'use client';
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Chip } from "@/components/ui/Chip";
-import { Divider } from "@/components/ui/Divider";
-import { Input } from "@/components/ui/Input";
-import { Progress } from "@/components/ui/Progress";
-import { Textarea } from "@/components/ui/Textarea";
-import { LeadDraft, Condition, ExistingOfferSource } from "@/lib/types";
-import { cleanVin, formatPhone, isProbablyPhone, isValidVin } from "@/lib/validators";
-import { ChatAgent } from "@/components/sell/ChatAgent";
-import { PhotoPicker } from "@/components/sell/PhotoPicker";
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Chip } from '@/components/ui/Chip';
+import { Divider } from '@/components/ui/Divider';
+import { Input } from '@/components/ui/Input';
+import { Progress } from '@/components/ui/Progress';
+import { Textarea } from '@/components/ui/Textarea';
+import { LeadDraft, Condition, ExistingOfferSource } from '@/lib/types';
+import { cleanVin, formatPhone, isProbablyPhone, isValidVin } from '@/lib/validators';
+import { ChatAgent } from '@/components/sell/ChatAgent';
+import { PhotoPicker } from '@/components/sell/PhotoPicker';
 
-type Mode = "quick" | "chat";
+type Mode = 'quick' | 'chat';
 
 const TOTAL_STEPS = 8;
 
 function emptyDraft(initialVin?: string): LeadDraft {
   return {
-    vin: initialVin ? cleanVin(initialVin) : "",
+    vin: initialVin ? cleanVin(initialVin) : '',
     contact: {},
-    existingOffer: { source: "None" }
+    existingOffer: { source: 'None' },
   };
 }
 
@@ -30,14 +30,14 @@ async function fileToDataUrl(file: File): Promise<string> {
   return await new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(String(reader.result));
-    reader.onerror = () => reject(new Error("Failed to read file"));
+    reader.onerror = () => reject(new Error('Failed to read file'));
     reader.readAsDataURL(file);
   });
 }
 
 export function SellFlow({ initialVin }: { initialVin?: string }) {
   const router = useRouter();
-  const [mode, setMode] = useState<Mode>("quick");
+  const [mode, setMode] = useState<Mode>('quick');
   const [step, setStep] = useState<number>(0);
   const [draft, setDraft] = useState<LeadDraft>(() => emptyDraft(initialVin));
   const [vinLoading, setVinLoading] = useState(false);
@@ -45,7 +45,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
 
   // Phone OTP (UI placeholder)
   const [otpSent, setOtpSent] = useState(false);
-  const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState('');
   const [otpError, setOtpError] = useState<string | null>(null);
 
   // Files (keep originals for preview; data URLs stored in draft on submit)
@@ -70,42 +70,42 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
   }, [vinOk]);
 
   function updateDraft(next: Partial<LeadDraft>) {
-    setDraft((d) => ({ ...d, ...next }));
+    setDraft(d => ({ ...d, ...next }));
   }
 
-  function updateContact(next: Partial<LeadDraft["contact"]>) {
-    setDraft((d) => ({ ...d, contact: { ...d.contact, ...next } }));
+  function updateContact(next: Partial<LeadDraft['contact']>) {
+    setDraft(d => ({ ...d, contact: { ...d.contact, ...next } }));
   }
 
-  function updateLocation(next: Partial<NonNullable<LeadDraft["location"]>>) {
-    setDraft((d) => ({ ...d, location: { ...(d.location ?? {}), ...next } }));
+  function updateLocation(next: Partial<NonNullable<LeadDraft['location']>>) {
+    setDraft(d => ({ ...d, location: { ...(d.location ?? {}), ...next } }));
   }
 
-  function updateTitle(next: Partial<NonNullable<LeadDraft["title"]>>) {
-    setDraft((d) => ({ ...d, title: { ...(d.title ?? {}), ...next } }));
+  function updateTitle(next: Partial<NonNullable<LeadDraft['title']>>) {
+    setDraft(d => ({ ...d, title: { ...(d.title ?? {}), ...next } }));
   }
 
-  function updateExistingOffer(next: Partial<NonNullable<LeadDraft["existingOffer"]>>) {
-    setDraft((d) => ({ ...d, existingOffer: { ...(d.existingOffer ?? {}), ...next } }));
+  function updateExistingOffer(next: Partial<NonNullable<LeadDraft['existingOffer']>>) {
+    setDraft(d => ({ ...d, existingOffer: { ...(d.existingOffer ?? {}), ...next } }));
   }
 
   async function decodeVin() {
     setVinError(null);
     const vin = cleanVin(draft.vin);
     if (!isValidVin(vin)) {
-      setVinError("VIN must be 17 characters (letters & numbers). No I/O/Q.");
+      setVinError('VIN must be 17 characters (letters & numbers). No I/O/Q.');
       return;
     }
     setVinLoading(true);
     try {
       const res = await fetch(`/api/vin?vin=${encodeURIComponent(vin)}`);
       const json = await res.json();
-      if (!res.ok) throw new Error(json?.error ?? "VIN decode failed");
+      if (!res.ok) throw new Error(json?.error ?? 'VIN decode failed');
       const vehicle = json.vehicle ?? {};
       updateDraft({ vin, vehicle });
       setStep(1);
     } catch (e: any) {
-      setVinError(e?.message ?? "VIN decode failed");
+      setVinError(e?.message ?? 'VIN decode failed');
     } finally {
       setVinLoading(false);
     }
@@ -113,7 +113,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
 
   const canContinue = useMemo(() => {
     // Gate minimal required info per step
-    if (mode === "chat") return true;
+    if (mode === 'chat') return true;
 
     switch (step) {
       case 0:
@@ -121,13 +121,17 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       case 1:
         return draft.confirmedVehicle === true;
       case 2:
-        return Boolean(draft.contact.name?.trim()) && Boolean(draft.contact.phone?.trim()) && draft.contact.phoneVerified === true;
+        return (
+          Boolean(draft.contact.name?.trim()) &&
+          Boolean(draft.contact.phone?.trim()) &&
+          draft.contact.phoneVerified === true
+        );
       case 3:
         return Boolean(draft.location?.zip?.trim()) && Boolean(draft.mileage?.trim());
       case 4:
-        if (draft.title?.titleInHand === "Yes") return true;
-        if (draft.title?.titleInHand === "No" && draft.title?.hasLoan === "No") return true;
-        if (draft.title?.titleInHand === "No" && draft.title?.hasLoan === "Yes") {
+        if (draft.title?.titleInHand === 'Yes') return true;
+        if (draft.title?.titleInHand === 'No' && draft.title?.hasLoan === 'No') return true;
+        if (draft.title?.titleInHand === 'No' && draft.title?.hasLoan === 'Yes') {
           return Boolean(draft.title?.lienholder?.trim());
         }
         return false;
@@ -136,7 +140,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       case 6:
         return photoFiles.length >= 3;
       case 7:
-        if ((draft.existingOffer?.source ?? "None") === "None") return true;
+        if ((draft.existingOffer?.source ?? 'None') === 'None') return true;
         // If they claim an offer, require amount + file
         return Boolean(draft.existingOffer?.amount?.trim()) && offerFiles.length >= 1;
       default:
@@ -154,20 +158,20 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       vin: vinClean,
       photos,
       existingOffer: {
-        ...(draft.existingOffer ?? { source: "None" }),
-        files: offerUploads
-      }
+        ...(draft.existingOffer ?? { source: 'None' }),
+        files: offerUploads,
+      },
     };
 
-    const res = await fetch("/api/leads", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+    const res = await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
     });
 
     const json = await res.json();
     if (!res.ok) {
-      alert(json?.error ?? "Failed to submit. Try again.");
+      alert(json?.error ?? 'Failed to submit. Try again.');
       return;
     }
 
@@ -184,17 +188,21 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       <Card className="p-3">
         <div className="flex gap-2">
           <button
-            onClick={() => setMode("quick")}
+            onClick={() => setMode('quick')}
             className={`flex-1 rounded-2xl px-3 py-2 text-sm font-medium transition ${
-              mode === "quick" ? "bg-zinc-900 text-white" : "bg-white text-zinc-700 hover:bg-zinc-50 border border-zinc-200"
+              mode === 'quick'
+                ? 'bg-zinc-900 text-white'
+                : 'bg-white text-zinc-700 hover:bg-zinc-50 border border-zinc-200'
             }`}
           >
             Quick questions
           </button>
           <button
-            onClick={() => setMode("chat")}
+            onClick={() => setMode('chat')}
             className={`flex-1 rounded-2xl px-3 py-2 text-sm font-medium transition ${
-              mode === "chat" ? "bg-zinc-900 text-white" : "bg-white text-zinc-700 hover:bg-zinc-50 border border-zinc-200"
+              mode === 'chat'
+                ? 'bg-zinc-900 text-white'
+                : 'bg-white text-zinc-700 hover:bg-zinc-50 border border-zinc-200'
             }`}
           >
             Chat / voice
@@ -203,7 +211,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       </Card>
 
       <div className="mt-4">
-        {mode === "chat" ? (
+        {mode === 'chat' ? (
           <ChatAgent
             draft={draft}
             setDraft={setDraft}
@@ -226,14 +234,16 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
               {step === 0 ? (
                 <div>
                   <div className="text-lg font-semibold text-zinc-900">What’s your VIN?</div>
-                  <div className="mt-1 text-sm text-zinc-600">Dealers need this to verify your exact car.</div>
+                  <div className="mt-1 text-sm text-zinc-600">
+                    Dealers need this to verify your exact car.
+                  </div>
 
                   <div className="mt-4">
                     <Input
                       label="VIN (required)"
                       placeholder="17 characters"
                       value={draft.vin}
-                      onChange={(e) => updateDraft({ vin: e.target.value })}
+                      onChange={e => updateDraft({ vin: e.target.value })}
                       autoCapitalize="characters"
                       autoCorrect="off"
                       spellCheck={false}
@@ -244,13 +254,22 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                   </div>
 
                   <div className="mt-4 flex items-center gap-3">
-                    <Button size="lg" disabled={!vinOk || vinLoading} onClick={decodeVin} className="flex-1">
-                      {vinLoading ? "Decoding…" : "Continue"}
+                    <Button
+                      size="lg"
+                      disabled={!vinOk || vinLoading}
+                      onClick={decodeVin}
+                      className="flex-1"
+                    >
+                      {vinLoading ? 'Decoding…' : 'Continue'}
                     </Button>
                     <Button
                       size="lg"
                       variant="secondary"
-                      onClick={() => alert("Look on your dashboard near the windshield, the driver door jamb, or your insurance/registration.")}
+                      onClick={() =>
+                        alert(
+                          'Look on your dashboard near the windshield, the driver door jamb, or your insurance/registration.'
+                        )
+                      }
                     >
                       Where is it?
                     </Button>
@@ -269,8 +288,9 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
 
                     <div className="mt-3 text-sm text-zinc-500">Vehicle</div>
                     <div className="mt-1 text-base font-semibold text-zinc-900">
-                      {draft.vehicle?.year ?? "—"} {draft.vehicle?.make ?? ""} {draft.vehicle?.model ?? ""}{" "}
-                      {draft.vehicle?.trim ? `(${draft.vehicle?.trim})` : ""}
+                      {draft.vehicle?.year ?? '—'} {draft.vehicle?.make ?? ''}{' '}
+                      {draft.vehicle?.model ?? ''}{' '}
+                      {draft.vehicle?.trim ? `(${draft.vehicle?.trim})` : ''}
                     </div>
                   </div>
 
@@ -290,7 +310,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                       variant="secondary"
                       className="flex-1"
                       onClick={() => {
-                        updateDraft({ vin: "", vehicle: undefined, confirmedVehicle: undefined });
+                        updateDraft({ vin: '', vehicle: undefined, confirmedVehicle: undefined });
                         setStep(0);
                       }}
                     >
@@ -302,7 +322,9 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
 
               {step === 2 ? (
                 <div>
-                  <div className="text-lg font-semibold text-zinc-900">Where should dealers reach you?</div>
+                  <div className="text-lg font-semibold text-zinc-900">
+                    Where should dealers reach you?
+                  </div>
                   <div className="mt-1 text-sm text-zinc-600">
                     Dealers will text you a cash offer. We keep this simple.
                   </div>
@@ -311,17 +333,23 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                     <Input
                       label="Your name"
                       placeholder="First + last"
-                      value={draft.contact.name ?? ""}
-                      onChange={(e) => updateContact({ name: e.target.value })}
+                      value={draft.contact.name ?? ''}
+                      onChange={e => updateContact({ name: e.target.value })}
                     />
 
                     <Input
                       label="Mobile phone (required)"
                       placeholder="(555) 555-5555"
-                      value={draft.contact.phone ?? ""}
-                      onChange={(e) => updateContact({ phone: formatPhone(e.target.value), phoneVerified: false })}
+                      value={draft.contact.phone ?? ''}
+                      onChange={e =>
+                        updateContact({ phone: formatPhone(e.target.value), phoneVerified: false })
+                      }
                       inputMode="tel"
-                      hint={draft.contact.phoneVerified ? "Verified ✓" : "We’ll send a quick code to verify."}
+                      hint={
+                        draft.contact.phoneVerified
+                          ? 'Verified ✓'
+                          : 'We’ll send a quick code to verify.'
+                      }
                     />
 
                     {!draft.contact.phoneVerified ? (
@@ -335,15 +363,15 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                           <Button
                             variant="secondary"
                             onClick={() => {
-                              if (!isProbablyPhone(draft.contact.phone ?? "")) {
-                                setOtpError("Enter a valid phone number first.");
+                              if (!isProbablyPhone(draft.contact.phone ?? '')) {
+                                setOtpError('Enter a valid phone number first.');
                                 return;
                               }
                               setOtpError(null);
                               setOtpSent(true);
                             }}
                           >
-                            {otpSent ? "Resend code" : "Text me a code"}
+                            {otpSent ? 'Resend code' : 'Text me a code'}
                           </Button>
 
                           <div className="flex-1" />
@@ -356,7 +384,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                                 label="6‑digit code"
                                 placeholder="123456"
                                 value={otp}
-                                onChange={(e) => setOtp(e.target.value)}
+                                onChange={e => setOtp(e.target.value)}
                                 inputMode="numeric"
                                 error={otpError ?? undefined}
                               />
@@ -364,7 +392,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                             <Button
                               onClick={() => {
                                 if (!/^\d{6}$/.test(otp.trim())) {
-                                  setOtpError("Enter a 6‑digit code.");
+                                  setOtpError('Enter a 6‑digit code.');
                                   return;
                                 }
                                 setOtpError(null);
@@ -381,8 +409,8 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                     <Input
                       label="Email (optional)"
                       placeholder="you@email.com"
-                      value={draft.contact.email ?? ""}
-                      onChange={(e) => updateContact({ email: e.target.value })}
+                      value={draft.contact.email ?? ''}
+                      onChange={e => updateContact({ email: e.target.value })}
                       inputMode="email"
                     />
                   </div>
@@ -392,14 +420,16 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
               {step === 3 ? (
                 <div>
                   <div className="text-lg font-semibold text-zinc-900">Basics</div>
-                  <div className="mt-1 text-sm text-zinc-600">Dealers mostly care about location + mileage.</div>
+                  <div className="mt-1 text-sm text-zinc-600">
+                    Dealers mostly care about location + mileage.
+                  </div>
 
                   <div className="mt-4 grid gap-3">
                     <Input
                       label="ZIP code"
                       placeholder="90210"
-                      value={draft.location?.zip ?? ""}
-                      onChange={(e) => updateLocation({ zip: e.target.value })}
+                      value={draft.location?.zip ?? ''}
+                      onChange={e => updateLocation({ zip: e.target.value })}
                       inputMode="numeric"
                       hint="Where the car is located."
                     />
@@ -407,8 +437,8 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                     <Input
                       label="Mileage"
                       placeholder="e.g. 52,340"
-                      value={draft.mileage ?? ""}
-                      onChange={(e) => updateDraft({ mileage: e.target.value })}
+                      value={draft.mileage ?? ''}
+                      onChange={e => updateDraft({ mileage: e.target.value })}
                       inputMode="numeric"
                     />
                   </div>
@@ -418,45 +448,72 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
               {step === 4 ? (
                 <div>
                   <div className="text-lg font-semibold text-zinc-900">Title & loan</div>
-                  <div className="mt-1 text-sm text-zinc-600">This affects how fast a dealer can pay you.</div>
+                  <div className="mt-1 text-sm text-zinc-600">
+                    This affects how fast a dealer can pay you.
+                  </div>
 
                   <div className="mt-4">
-                    <div className="text-sm font-medium text-zinc-900">Do you have the title in hand?</div>
+                    <div className="text-sm font-medium text-zinc-900">
+                      Do you have the title in hand?
+                    </div>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      <Chip selected={draft.title?.titleInHand === "Yes"} onClick={() => updateTitle({ titleInHand: "Yes", hasLoan: undefined, lienholder: "", payoffAmount: "" })}>
+                      <Chip
+                        selected={draft.title?.titleInHand === 'Yes'}
+                        onClick={() =>
+                          updateTitle({
+                            titleInHand: 'Yes',
+                            hasLoan: undefined,
+                            lienholder: '',
+                            payoffAmount: '',
+                          })
+                        }
+                      >
                         Yes
                       </Chip>
-                      <Chip selected={draft.title?.titleInHand === "No"} onClick={() => updateTitle({ titleInHand: "No" })}>
+                      <Chip
+                        selected={draft.title?.titleInHand === 'No'}
+                        onClick={() => updateTitle({ titleInHand: 'No' })}
+                      >
                         No
                       </Chip>
                     </div>
                   </div>
 
-                  {draft.title?.titleInHand === "No" ? (
+                  {draft.title?.titleInHand === 'No' ? (
                     <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-4">
-                      <div className="text-sm font-medium text-zinc-900">Is there a loan on it?</div>
+                      <div className="text-sm font-medium text-zinc-900">
+                        Is there a loan on it?
+                      </div>
                       <div className="mt-2 flex flex-wrap gap-2">
-                        <Chip selected={draft.title?.hasLoan === "Yes"} onClick={() => updateTitle({ hasLoan: "Yes" })}>
+                        <Chip
+                          selected={draft.title?.hasLoan === 'Yes'}
+                          onClick={() => updateTitle({ hasLoan: 'Yes' })}
+                        >
                           Yes
                         </Chip>
-                        <Chip selected={draft.title?.hasLoan === "No"} onClick={() => updateTitle({ hasLoan: "No", lienholder: "", payoffAmount: "" })}>
+                        <Chip
+                          selected={draft.title?.hasLoan === 'No'}
+                          onClick={() =>
+                            updateTitle({ hasLoan: 'No', lienholder: '', payoffAmount: '' })
+                          }
+                        >
                           No
                         </Chip>
                       </div>
 
-                      {draft.title?.hasLoan === "Yes" ? (
+                      {draft.title?.hasLoan === 'Yes' ? (
                         <div className="mt-3 grid gap-3">
                           <Input
                             label="What bank/lender?"
                             placeholder="e.g. Chase, Capital One, Navy Federal"
-                            value={draft.title?.lienholder ?? ""}
-                            onChange={(e) => updateTitle({ lienholder: e.target.value })}
+                            value={draft.title?.lienholder ?? ''}
+                            onChange={e => updateTitle({ lienholder: e.target.value })}
                           />
                           <Input
                             label="Approx payoff amount (optional)"
                             placeholder="e.g. 18,500"
-                            value={draft.title?.payoffAmount ?? ""}
-                            onChange={(e) => updateTitle({ payoffAmount: e.target.value })}
+                            value={draft.title?.payoffAmount ?? ''}
+                            onChange={e => updateTitle({ payoffAmount: e.target.value })}
                             inputMode="numeric"
                           />
                         </div>
@@ -469,23 +526,29 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
               {step === 5 ? (
                 <div>
                   <div className="text-lg font-semibold text-zinc-900">Condition</div>
-                  <div className="mt-1 text-sm text-zinc-600">Pick the closest match. No overthinking.</div>
+                  <div className="mt-1 text-sm text-zinc-600">
+                    Pick the closest match. No overthinking.
+                  </div>
 
                   <div className="mt-4 grid gap-2">
-                    {(["Excellent", "Good", "Fair", "Needs work"] as Condition[]).map((c) => (
+                    {(['Excellent', 'Good', 'Fair', 'Needs work'] as Condition[]).map(c => (
                       <button
                         key={c}
                         className={`rounded-2xl border p-4 text-left transition ${
-                          draft.condition === c ? "border-zinc-900 bg-zinc-900 text-white" : "border-zinc-200 bg-white hover:bg-zinc-50"
+                          draft.condition === c
+                            ? 'border-zinc-900 bg-zinc-900 text-white'
+                            : 'border-zinc-200 bg-white hover:bg-zinc-50'
                         }`}
                         onClick={() => updateDraft({ condition: c })}
                       >
                         <div className="font-medium">{c}</div>
-                        <div className={`mt-1 text-xs ${draft.condition === c ? "text-zinc-200" : "text-zinc-500"}`}>
-                          {c === "Excellent" ? "Like-new. No issues." : null}
-                          {c === "Good" ? "Normal wear. Runs great." : null}
-                          {c === "Fair" ? "Noticeable wear or small issues." : null}
-                          {c === "Needs work" ? "Mechanical / body work needed." : null}
+                        <div
+                          className={`mt-1 text-xs ${draft.condition === c ? 'text-zinc-200' : 'text-zinc-500'}`}
+                        >
+                          {c === 'Excellent' ? 'Like-new. No issues.' : null}
+                          {c === 'Good' ? 'Normal wear. Runs great.' : null}
+                          {c === 'Fair' ? 'Noticeable wear or small issues.' : null}
+                          {c === 'Needs work' ? 'Mechanical / body work needed.' : null}
                         </div>
                       </button>
                     ))}
@@ -496,13 +559,22 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                   <div>
                     <div className="text-sm font-medium text-zinc-900">Any accidents?</div>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      <Chip selected={draft.accidents === "No"} onClick={() => updateDraft({ accidents: "No" })}>
+                      <Chip
+                        selected={draft.accidents === 'No'}
+                        onClick={() => updateDraft({ accidents: 'No' })}
+                      >
                         No
                       </Chip>
-                      <Chip selected={draft.accidents === "Yes"} onClick={() => updateDraft({ accidents: "Yes" })}>
+                      <Chip
+                        selected={draft.accidents === 'Yes'}
+                        onClick={() => updateDraft({ accidents: 'Yes' })}
+                      >
                         Yes
                       </Chip>
-                      <Chip selected={draft.accidents === "Not sure"} onClick={() => updateDraft({ accidents: "Not sure" })}>
+                      <Chip
+                        selected={draft.accidents === 'Not sure'}
+                        onClick={() => updateDraft({ accidents: 'Not sure' })}
+                      >
                         Not sure
                       </Chip>
                     </div>
@@ -512,8 +584,8 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                     <Textarea
                       label="Anything else a dealer should know? (optional)"
                       placeholder="Examples: new tires, check engine light, smoke smell, aftermarket wheels…"
-                      value={draft.notes ?? ""}
-                      onChange={(e) => updateDraft({ notes: e.target.value })}
+                      value={draft.notes ?? ''}
+                      onChange={e => updateDraft({ notes: e.target.value })}
                     />
                   </div>
                 </div>
@@ -522,7 +594,9 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
               {step === 6 ? (
                 <div>
                   <div className="text-lg font-semibold text-zinc-900">Photos</div>
-                  <div className="mt-1 text-sm text-zinc-600">Upload at least 3. More = better offers.</div>
+                  <div className="mt-1 text-sm text-zinc-600">
+                    Upload at least 3. More = better offers.
+                  </div>
 
                   <div className="mt-4">
                     <PhotoPicker files={photoFiles} setFiles={setPhotoFiles} />
@@ -537,25 +611,30 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                 <div>
                   <div className="text-lg font-semibold text-zinc-900">Existing offer?</div>
                   <div className="mt-1 text-sm text-zinc-600">
-                    If you already have a Carvana or CarMax offer, upload it. Dealers will verify it.
+                    If you already have a Carvana or CarMax offer, upload it. Dealers will verify
+                    it.
                   </div>
 
                   <div className="mt-4">
-                    <div className="text-sm font-medium text-zinc-900">Do you have a valid offer?</div>
+                    <div className="text-sm font-medium text-zinc-900">
+                      Do you have a valid offer?
+                    </div>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      {(["None", "Carvana", "CarMax", "Other"] as ExistingOfferSource[]).map((s) => (
+                      {(['None', 'Carvana', 'CarMax', 'Other'] as ExistingOfferSource[]).map(s => (
                         <Chip
                           key={s}
-                          selected={(draft.existingOffer?.source ?? "None") === s}
-                          onClick={() => updateExistingOffer({ source: s, amount: "", expires: "" })}
+                          selected={(draft.existingOffer?.source ?? 'None') === s}
+                          onClick={() =>
+                            updateExistingOffer({ source: s, amount: '', expires: '' })
+                          }
                         >
-                          {s === "None" ? "No" : s}
+                          {s === 'None' ? 'No' : s}
                         </Chip>
                       ))}
                     </div>
                   </div>
 
-                  {(draft.existingOffer?.source ?? "None") !== "None" ? (
+                  {(draft.existingOffer?.source ?? 'None') !== 'None' ? (
                     <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-4">
                       <div className="text-sm font-medium text-zinc-900">Offer details</div>
                       <div className="mt-1 text-xs text-zinc-500">
@@ -566,15 +645,15 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                         <Input
                           label="Offer amount"
                           placeholder="e.g. 26,500"
-                          value={draft.existingOffer?.amount ?? ""}
-                          onChange={(e) => updateExistingOffer({ amount: e.target.value })}
+                          value={draft.existingOffer?.amount ?? ''}
+                          onChange={e => updateExistingOffer({ amount: e.target.value })}
                           inputMode="numeric"
                         />
                         <Input
                           label="Expiration (optional)"
                           placeholder="e.g. 2026-03-12"
-                          value={draft.existingOffer?.expires ?? ""}
-                          onChange={(e) => updateExistingOffer({ expires: e.target.value })}
+                          value={draft.existingOffer?.expires ?? ''}
+                          onChange={e => updateExistingOffer({ expires: e.target.value })}
                           inputMode="text"
                         />
 
@@ -585,10 +664,12 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                             className="mt-3 block w-full text-sm"
                             type="file"
                             accept="image/*,application/pdf"
-                            onChange={(e) => setOfferFiles(Array.from(e.target.files ?? []))}
+                            onChange={e => setOfferFiles(Array.from(e.target.files ?? []))}
                           />
                           {offerFiles.length ? (
-                            <div className="mt-2 text-xs text-zinc-600">{offerFiles.length} file selected</div>
+                            <div className="mt-2 text-xs text-zinc-600">
+                              {offerFiles.length} file selected
+                            </div>
                           ) : null}
                         </div>
                       </div>
@@ -604,7 +685,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                   variant="secondary"
                   className="w-24"
                   disabled={step === 0}
-                  onClick={() => setStep((s) => Math.max(0, s - 1))}
+                  onClick={() => setStep(s => Math.max(0, s - 1))}
                 >
                   Back
                 </Button>
@@ -618,7 +699,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                         decodeVin();
                         return;
                       }
-                      setStep((s) => Math.min(TOTAL_STEPS - 1, s + 1));
+                      setStep(s => Math.min(TOTAL_STEPS - 1, s + 1));
                     }}
                     size="lg"
                   >

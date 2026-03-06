@@ -1,6 +1,6 @@
-export type Condition = "Excellent" | "Good" | "Fair" | "Needs work";
+export type Condition = 'Excellent' | 'Good' | 'Fair' | 'Needs work';
 
-export type ExistingOfferSource = "None" | "Carvana" | "CarMax" | "Other";
+export type ExistingOfferSource = 'None' | 'Carvana' | 'CarMax' | 'Other';
 
 export type LeadDraft = {
   vin: string;
@@ -27,14 +27,14 @@ export type LeadDraft = {
   mileage?: string;
 
   title?: {
-    titleInHand?: "Yes" | "No";
-    hasLoan?: "Yes" | "No";
+    titleInHand?: 'Yes' | 'No';
+    hasLoan?: 'Yes' | 'No';
     lienholder?: string;
     payoffAmount?: string;
   };
 
   condition?: Condition;
-  accidents?: "Yes" | "No" | "Not sure";
+  accidents?: 'Yes' | 'No' | 'Not sure';
   notes?: string;
 
   photos?: string[]; // data URLs for prototype
@@ -56,7 +56,7 @@ export type Lead = {
     amount: string;
     message?: string;
     dealerName?: string;
-    action: "bid" | "pass";
+    action: 'bid' | 'pass';
   }>;
 };
 

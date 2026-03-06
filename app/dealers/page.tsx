@@ -1,4 +1,4 @@
-import { DealerSignupForm } from "@/components/dealer/DealerSignupForm";
+import { DealerSignupForm } from '@/components/dealer/DealerSignupForm';
 
 export default function Page() {
   return (

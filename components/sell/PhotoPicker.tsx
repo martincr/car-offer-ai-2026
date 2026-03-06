@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useMemo } from "react";
-import { Button } from "@/components/ui/Button";
+import { useMemo } from 'react';
+import { Button } from '@/components/ui/Button';
 
 function uniqByKey<T>(arr: T[], key: (t: T) => string) {
   const seen = new Set<string>();
@@ -15,11 +15,17 @@ function uniqByKey<T>(arr: T[], key: (t: T) => string) {
   return out;
 }
 
-export function PhotoPicker({ files, setFiles }: { files: File[]; setFiles: (files: File[]) => void }) {
+export function PhotoPicker({
+  files,
+  setFiles,
+}: {
+  files: File[];
+  setFiles: (files: File[]) => void;
+}) {
   const previews = useMemo(() => {
-    return files.map((f) => ({ file: f, url: URL.createObjectURL(f) }));
+    return files.map(f => ({ file: f, url: URL.createObjectURL(f) }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [files.map((f) => `${f.name}-${f.size}-${f.lastModified}`).join("|")]);
+  }, [files.map(f => `${f.name}-${f.size}-${f.lastModified}`).join('|')]);
 
   return (
     <div>
@@ -38,19 +44,25 @@ export function PhotoPicker({ files, setFiles }: { files: File[]; setFiles: (fil
           accept="image/*"
           multiple
           capture="environment"
-          onChange={(e) => {
+          onChange={e => {
             const next = Array.from(e.target.files ?? []);
             if (!next.length) return;
-            const merged = uniqByKey([...files, ...next], (f) => `${f.name}-${f.size}-${f.lastModified}`);
+            const merged = uniqByKey(
+              [...files, ...next],
+              f => `${f.name}-${f.size}-${f.lastModified}`
+            );
             setFiles(merged.slice(0, 12)); // keep it sane
-            e.currentTarget.value = "";
+            e.currentTarget.value = '';
           }}
         />
 
         {files.length ? (
           <div className="mt-4 grid grid-cols-3 gap-2">
             {previews.map((p, idx) => (
-              <div key={idx} className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
+              <div
+                key={idx}
+                className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.url} alt={`Photo ${idx + 1}`} className="h-24 w-full object-cover" />
                 <button

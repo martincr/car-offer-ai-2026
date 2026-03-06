@@ -1,5 +1,5 @@
-import { cn } from "@/lib/cn";
-import type { InputHTMLAttributes } from "react";
+import { cn } from '@/lib/cn';
+import type { InputHTMLAttributes } from 'react';
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -13,8 +13,8 @@ export function Input({ className, label, hint, error, ...props }: Props) {
       {label ? <div className="mb-1.5 text-sm font-medium text-zinc-900">{label}</div> : null}
       <input
         className={cn(
-          "h-14 w-full rounded-2xl border bg-white px-4 text-base outline-none transition",
-          error ? "border-red-300 focus:border-red-400" : "border-zinc-200 focus:border-zinc-400",
+          'h-14 w-full rounded-2xl border bg-white px-4 text-base outline-none transition',
+          error ? 'border-red-300 focus:border-red-400' : 'border-zinc-200 focus:border-zinc-400',
           className
         )}
         {...props}

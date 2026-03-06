@@ -1,5 +1,5 @@
 export function cleanVin(input: string) {
-  return input.toUpperCase().replace(/\s+/g, "");
+  return input.toUpperCase().replace(/\s+/g, '');
 }
 
 export function isValidVin(vin: string) {
@@ -9,12 +9,12 @@ export function isValidVin(vin: string) {
 }
 
 export function isProbablyPhone(input: string) {
-  const digits = input.replace(/\D/g, "");
+  const digits = input.replace(/\D/g, '');
   return digits.length >= 10;
 }
 
 export function formatPhone(input: string) {
-  const digits = input.replace(/\D/g, "");
+  const digits = input.replace(/\D/g, '');
   if (digits.length <= 3) return digits;
   if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { getLead } from "@/lib/store";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import Link from 'next/link';
+import { getLead } from '@/lib/store';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 export default function Page({ params }: { params: { id: string } }) {
   const lead = getLead(params.id);
@@ -18,8 +18,9 @@ export default function Page({ params }: { params: { id: string } }) {
           <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700">
             <div className="text-xs text-zinc-500">Submitted</div>
             <div className="mt-1 font-medium text-zinc-900">
-              {lead.data.vehicle?.year ?? "—"} {lead.data.vehicle?.make ?? ""} {lead.data.vehicle?.model ?? ""}{" "}
-              {lead.data.vehicle?.trim ? `(${lead.data.vehicle.trim})` : ""}
+              {lead.data.vehicle?.year ?? '—'} {lead.data.vehicle?.make ?? ''}{' '}
+              {lead.data.vehicle?.model ?? ''}{' '}
+              {lead.data.vehicle?.trim ? `(${lead.data.vehicle.trim})` : ''}
             </div>
             <div className="mt-1 text-xs text-zinc-500">VIN</div>
             <div className="mt-0.5 font-mono text-xs text-zinc-900">{lead.data.vin}</div>
@@ -46,9 +47,11 @@ export default function Page({ params }: { params: { id: string } }) {
 
         {lead ? (
           <details className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-            <summary className="cursor-pointer text-sm font-medium text-zinc-900">Developer demo link (dealer view)</summary>
+            <summary className="cursor-pointer text-sm font-medium text-zinc-900">
+              Developer demo link (dealer view)
+            </summary>
             <div className="mt-2 text-sm text-zinc-700">
-              Open:{" "}
+              Open:{' '}
               <Link className="underline underline-offset-2" href={`/d/${lead.id}`}>
                 /d/{lead.id}
               </Link>

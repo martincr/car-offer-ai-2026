@@ -1,4 +1,4 @@
-import { DealerSignup, Lead, LeadDraft } from "@/lib/types";
+import { DealerSignup, Lead, LeadDraft } from '@/lib/types';
 
 type Store = {
   leads: Map<string, Lead>;
@@ -10,7 +10,7 @@ function getStore(): Store {
   if (!g.__carOfferStore) {
     g.__carOfferStore = {
       leads: new Map(),
-      dealers: new Map()
+      dealers: new Map(),
     };
   }
   return g.__carOfferStore;
@@ -23,10 +23,10 @@ function id(prefix: string) {
 export function createLead(data: LeadDraft): Lead {
   const store = getStore();
   const lead: Lead = {
-    id: id("lead"),
+    id: id('lead'),
     createdAt: new Date().toISOString(),
     data,
-    bids: []
+    bids: [],
   };
   store.leads.set(lead.id, lead);
   return lead;
@@ -40,7 +40,7 @@ export function listLeads() {
   return Array.from(getStore().leads.values()).sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 }
 
-export function addBid(leadId: string, bid: Lead["bids"][number]) {
+export function addBid(leadId: string, bid: Lead['bids'][number]) {
   const store = getStore();
   const lead = store.leads.get(leadId);
   if (!lead) return null;
@@ -49,17 +49,19 @@ export function addBid(leadId: string, bid: Lead["bids"][number]) {
   return lead;
 }
 
-export function createDealerSignup(input: Omit<DealerSignup, "id" | "createdAt">) {
+export function createDealerSignup(input: Omit<DealerSignup, 'id' | 'createdAt'>) {
   const store = getStore();
   const dealer: DealerSignup = {
-    id: id("dealer"),
+    id: id('dealer'),
     createdAt: new Date().toISOString(),
-    ...input
+    ...input,
   };
   store.dealers.set(dealer.id, dealer);
   return dealer;
 }
 
 export function listDealers() {
-  return Array.from(getStore().dealers.values()).sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+  return Array.from(getStore().dealers.values()).sort((a, b) =>
+    a.createdAt < b.createdAt ? 1 : -1
+  );
 }

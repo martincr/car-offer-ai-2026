@@ -10,13 +10,21 @@ This repo is intentionally lean. The “backend” is an in-memory store (good f
 
 ```bash
 npm install
-npm run dev
+npm run dev         # start the Next.js development server
+npm run format      # run Prettier on source files
+npm run lint        # run ESLint
+npm run typecheck   # verify TypeScript without emitting
+npm run test:e2e    # execute Playwright end-to-end tests (server must be running)
 ```
 
-Open:
-- Seller flow: http://localhost:3000/
+Open in your browser:
+- Seller flow: http://localhost:3000/ (or 3001 if 3000 is taken)
 - Dealer signup: http://localhost:3000/dealers
 - Dealer lead view (after submitting a seller lead): the thank-you page shows a demo link like `/d/{id}`.
+
+The project uses a modern Next.js/React/TypeScript stack. See `docs/TECH_STACK.md` for details and `docs/CHANGELOG.md` for recent work.
+
+For onboarding guidelines, see `docs/ONBOARDING.md`.
 
 ## What’s included (MVP fields)
 Required / important dealer fields captured:
