@@ -6,10 +6,10 @@ export default function Page() {
     <main className="mx-auto max-w-md px-4 pb-10 pt-8">
       <div className="text-center">
         <div className="text-4xl font-semibold tracking-tight text-zinc-900">
-          Cash offers from real dealers.
+          Get dealers to compete for your car — in minutes.
         </div>
         <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-          Enter your VIN, answer a few quick questions, and let dealers bid for your car.
+          Multiple dealers compete for your car. You pick the best offer — or walk away. Takes about 2 minutes.
         </p>
       </div>
 

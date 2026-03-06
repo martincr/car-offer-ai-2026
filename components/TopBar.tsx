@@ -9,10 +9,10 @@ export function TopBar() {
         </Link>
         <nav className="flex items-center gap-3 text-sm text-zinc-600">
           <Link href="/sell" className="hover:text-zinc-900">
-            Sell
+            Sell Your Car
           </Link>
           <Link href="/dealers" className="hover:text-zinc-900">
-            Dealers
+            Dealer Access
           </Link>
         </nav>
       </div>
