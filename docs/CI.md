@@ -1,41 +1,48 @@
 # Continuous Integration
 
-This project uses GitHub Actions for CI. The main workflow is defined in
-`.github/workflows/ci.yml` and runs on every push or pull request to `main`/
-`master`.
+The CI pipeline runs on every push or pull request to `main` via GitHub Actions (`.github/workflows/ci.yml`).
 
 ## Workflow steps
 
-1. **Checkout & Node setup** – pulls code and installs Node.js 20.
-2. **Install dependencies** – runs `npm ci` for a clean install.
-3. **Linting** – executes `npm run lint` using ESLint.
-4. **Type checking** – runs `npm run typecheck` to catch TypeScript errors.
-5. **Build** – compiles the Next.js app with `npm run build`.
-6. **E2E tests** – starts a temporary dev server and runs `npm run test:e2e`.
-7. **Performance audit** – runs Lighthouse against the local server and logs the
-   performance score.
+| Step | Command | Notes |
+|---|---|---|
+| Install | `npm ci` | Clean install from lockfile |
+| Lint | `npm run lint` | ESLint 10 flat config |
+| Type check | `npm run typecheck` | `tsc --noEmit` |
+| Build | `npm run build` | Next.js production build |
+| Start server | `npm run start &` | Background process on port 3000 |
+| Wait | `npx wait-on http://localhost:3000` | Blocks until server is ready (60s timeout) |
+| E2E tests | `npm run test:e2e` | Playwright against running server |
+| Lighthouse | `npx lighthouse ...` | Performance audit — logged, non-blocking (`|| true`) |
 
-The dev server is started as a service container to make it available during the
-E2E and Lighthouse steps.
+## Failure behaviour
 
-## Results
+- Any step before Lighthouse failing will stop the pipeline and block merges.
+- Lighthouse failures are suppressed (`|| true`) — the score is logged only.
 
-- Lint/errors prevent merges and notify maintainers.
-- Build failures stop the pipeline early.
-- Playwright ensures basic user flows are working.
-- Lighthouse score provides a quick indicator of frontend performance.
+## Running CI steps locally
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm run start &
+npx wait-on http://localhost:3000
+npm run test:e2e
+```
+
+## Known limitations
+
+- **No dependency caching** — `npm ci` runs from scratch on every build, which is slow. Add `actions/cache` for `node_modules` to speed this up.
+- **No parallelism** — lint, typecheck, and build run sequentially. Could be split into parallel jobs.
+- **No unit tests** — only E2E. Jest or Vitest unit tests would give faster feedback.
+- **No deployment job** — CI does not deploy to staging or production after a successful build.
+- **Playwright browsers not cached** — if `npx playwright install` is needed in CI, add it as a step before E2E.
 
 ## Future improvements
 
-- **Cache dependencies** between runs to speed up installs (`actions/cache`).
-- **Split jobs** for lint/typecheck/build to run in parallel and save time.
-- **Add unit tests** (Jest) and include coverage reports that fail on low coverage.
-- **Security scans** using tools like `npm audit` or third-party actions.
-- **Deployment job** to staging/production when a release tag is pushed.
-- **Performance budgets** or thresholds that fail the build if score drops.
-- **Artifact storage** for test results and Lighthouse reports, or integrate with
-  Slack/email notifications.
-- **Static analysis** such as BundlePhobia for size regression or Snyk for
-  vulnerability management.
-
-This document serves as a reference and can be updated as the pipeline evolves.
+- Cache `node_modules` and Playwright browsers between runs.
+- Split lint/typecheck/build into parallel jobs.
+- Add a deploy step triggered on merge to `main`.
+- Add unit test coverage with a minimum threshold.
+- Add `npm audit` as a non-blocking informational step.

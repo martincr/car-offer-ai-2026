@@ -1,52 +1,59 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-## [Unreleased]
-
-### Dependencies
-- **Next.js** upgraded from 14.2.5 to 14.2.35 (patched) to address security advisory.
-- Afterwards, forced audit upgrade bumped **Next.js** to **16.1.6** (major upgrade).
-- **eslint-config-next** upgraded to 16.1.6 to match Next.js.
-- Additional packages were added/removed during `npm audit fix --force` and peer dependency warnings appeared (e.g. ESLint 10 requirement).
-
-### Security
-- Ran `npm audit fix` which highlighted high‑severity vulnerabilities requiring major version upgrades.
-- Executed `npm audit fix --force` to clear all vulnerabilities; results show 0 remaining.
-
-### Documentation
-- Added `docs/TECH_STACK.md` summarizing stack and improvement suggestions.
-- Created `docs/CHANGELOG.md` (this file) to track changes.
-
-### Tooling
-- Enabled stricter TypeScript compiler options (`noImplicitAny`, `noUnusedLocals`, `noUnusedParameters`, `noImplicitReturns`).
-- Added `.eslintrc.json` with custom rules and bumped ESLint to v10.
-- Introduced Prettier config and `format` script for consistent styling.
-
-### Testing
-- Installed `@playwright/test` and configured Playwright with `playwright.config.ts`.
-- Added example test file under `tests/` and `test:e2e` script.
-- Browsers installed via `npx playwright install` for local E2E runs.
-
-### Documentation
-- Created `docs/ONBOARDING.md` outlining environment, commands, structure, and
-  conventions for new contributors.
-- Updated onboarding to include guidance for the `shadcn` component generator.
-
-### Dependencies
-- Removed deprecated `shadcn-ui` package and updated `components.json` style
-  to `default` to avoid missing registry errors.
-
-### CI
-- Added GitHub Actions workflow (`.github/workflows/ci.yml`) for linting, typechecking,
-  building, Playwright E2E tests, and a Lighthouse performance check.
-- Created `docs/CI.md` explaining the workflow steps and suggesting future
-enhancements.
-
-### Recommendations
-- Note to review Next.js migration guide after bumping to 16.x.
-- Suggest updating ESLint to v10 and validating the application builds successfully.
+All notable changes to this project are documented here.
 
 ---
 
-Entries above describe recent work done on or around **March 6 2026** and will be updated with future changes.
+## 2026-03-06
+
+### Bug fixes
+- Fixed Next.js 15/16 breaking change: `params` in dynamic route handlers must now be typed as `Promise<{...}>` and awaited. Applied to all four affected handlers: `app/api/leads/[id]/route.ts`, `app/api/leads/[id]/bid/route.ts`, `app/thank-you/[id]/page.tsx`, `app/d/[id]/page.tsx`.
+
+### Security & trust
+- Removed fake OTP phone verification UI from seller flow (`SellFlow.tsx`, `ChatAgent.tsx`). The placeholder admitted "no real SMS sent" which was visible to production users. Phone number is now collected directly without a fake verification gate.
+- Gated seller contact info (name, phone, email) in the dealer lead view behind a "Reveal contact info" button (`SellerContactReveal.tsx`). Contact details were previously visible immediately to anyone with the lead URL.
+
+### SEO & copy
+- Updated page metadata (`app/layout.tsx`): new title, meta description, and OpenGraph fields.
+- Updated homepage headline and subheading (`app/page.tsx`).
+- Updated dealers page headline, subheading, form card copy, success message, and footer note.
+- Removed redundant price note from dealers page.
+- Centered footer text.
+
+### CI fixes
+- Fixed broken GitHub Actions workflow: removed `services` block that was attempting to run the app in a Docker container without access to the repo. Replaced with a `Start server` step (`npm run start &`) followed by `npx wait-on` to block until port 3000 is ready.
+- Replaced `next lint` (broken in Next.js 16) with `eslint .` using a new `eslint.config.mjs` flat config (ESLint 10 / typescript-eslint).
+- Removed stale `eslint-disable-next-line` comments referencing unloaded plugins (`react-hooks/exhaustive-deps`, `@next/next/no-img-element`) across four source files.
+- Fixed unused `catch (e)` variable in `app/api/vin/route.ts`.
+
+### Repository hygiene
+- Updated `.gitignore` to exclude `.next`, `out`, `build`, `.env*`, `.DS_Store`, `*.pem`, and `lhreport.json`.
+- Removed already-tracked `.next` directory from git index.
+- Removed unused `ExistingOfferSource` import from `components/sell/ChatAgent.tsx`.
+
+### Documentation
+- Added `docs/FLOW_ANALYSIS.md`: full UX analysis of seller and dealer flows, listing 14 friction points and issues with priority ordering.
+- Updated `README.md`, `TECH_STACK.md`, `ONBOARDING.md`, `CI.md` to reflect current state.
+
+---
+
+## Earlier (prior to 2026-03-06)
+
+### Dependencies
+- Next.js upgraded from 14.2.5 → 14.2.35 (security patch) → 16.1.6 (forced major via `npm audit fix --force`).
+- `eslint-config-next` upgraded to 16.1.6 to match Next.js.
+- Removed deprecated `shadcn-ui` package; updated `components.json` style to `default`.
+
+### Tooling
+- Enabled stricter TypeScript compiler options (`noImplicitAny`, `noUnusedLocals`, `noUnusedParameters`, `noImplicitReturns`).
+- Added Prettier config and `format` script.
+
+### Testing
+- Installed `@playwright/test`, configured `playwright.config.ts`, added `test:e2e` script.
+
+### CI
+- Added `.github/workflows/ci.yml` for lint, typecheck, build, E2E, and Lighthouse steps.
+- Added `docs/CI.md`.
+
+### Documentation
+- Added `docs/TECH_STACK.md` and `docs/ONBOARDING.md`.

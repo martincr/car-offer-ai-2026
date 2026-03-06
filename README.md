@@ -1,10 +1,8 @@
 # Car Offer AI (prototype UI)
 
-Mobile-first, grayscale UI for:
-- Sellers: enter VIN → answer quick questions → upload photos → submit for dealer bids
-- Dealers: simple signup form + lead view page (bid / pass)
+Mobile-first app for selling your car to dealers. Sellers submit their car details; dealers receive leads via text and bid or pass from their phone.
 
-This repo is intentionally lean. The “backend” is an in-memory store (good for UI prototyping; not production).
+> Prototype — backend is in-memory (resets on server restart). Not production-ready.
 
 ## Quick start
 
@@ -12,40 +10,44 @@ This repo is intentionally lean. The “backend” is an in-memory store (good f
 npm install
 npm run dev         # start the Next.js development server
 npm run format      # run Prettier on source files
-npm run lint        # run ESLint
+npm run lint        # run ESLint (flat config via eslint.config.mjs)
 npm run typecheck   # verify TypeScript without emitting
-npm run test:e2e    # execute Playwright end-to-end tests (server must be running)
+npm run test:e2e    # execute Playwright end-to-end tests (build + start server first)
 ```
 
 Open in your browser:
-- Seller flow: http://localhost:3000/ (or 3001 if 3000 is taken)
-- Dealer signup: http://localhost:3000/dealers
-- Dealer lead view (after submitting a seller lead): the thank-you page shows a demo link like `/d/{id}`.
+- Seller flow: `http://localhost:3000/`
+- Dealer signup: `http://localhost:3000/dealers`
+- Dealer lead view: after submitting a seller lead, the thank-you page shows a demo link `/d/{id}`
 
-The project uses a modern Next.js/React/TypeScript stack. See `docs/TECH_STACK.md` for details and `docs/CHANGELOG.md` for recent work.
+## User flows
 
-For onboarding guidelines, see `docs/ONBOARDING.md`.
+**Seller (8 steps):**
+1. Enter VIN → decoded via NHTSA vPIC API
+2. Confirm vehicle
+3. Name + mobile phone
+4. ZIP + mileage
+5. Title & loan status
+6. Condition + accidents + notes
+7. Photos (min 3)
+8. Existing offer (optional — Carvana/CarMax)
 
-The CI workflow is documented in `docs/CI.md`.
+**Dealer:**
+1. Sign up at `/dealers` (one-time $500 access fee, payment link sent via text)
+2. Receive per-lead text links → view full car details + photos
+3. Reveal seller contact → bid or pass
 
-## What’s included (MVP fields)
-Required / important dealer fields captured:
-- VIN (required) + decoded basics (year/make/model/trim)
-- Seller name + phone (OTP UI)
-- Location (ZIP) + mileage
-- Title in hand vs loan → lienholder bank + payoff amount (optional)
-- Condition + accident flag + notes
-- Photos (multi-upload)
-- Existing Carvana / CarMax offer (optional) + upload + “don’t edit screenshots” warning
+## Known limitations (prototype)
 
-## Notes
-- VIN decoding uses the public NHTSA vPIC API via `/api/vin`.
-- SMS/email verification is UI-only placeholder (no real SMS sent).
-- Lead storage is in-memory (resets on server restart).
+- Lead storage is in-memory — resets on every server restart
+- SMS notifications not implemented (bid → seller text is a placeholder)
+- Dealer authentication not implemented — `/d/{id}` links are public
+- VIN decoding uses the free NHTSA vPIC API (no API key required)
 
-## Footer copy
-Per request:
-> from the guy who made ONLY USED TESLA — adam Qureshi , QURESHI MEDIA LLC . Small softwware movement. Independent.
+## Docs
 
-(Spelling kept as provided.)
-
+- `docs/TECH_STACK.md` — stack overview
+- `docs/ONBOARDING.md` — developer setup and conventions
+- `docs/CI.md` — GitHub Actions workflow
+- `docs/CHANGELOG.md` — change history
+- `docs/FLOW_ANALYSIS.md` — UX analysis of both personas with known issues

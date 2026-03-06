@@ -1,69 +1,76 @@
-# Project Technology Stack
+# Technology Stack
 
-This project was bootstrapped with `create-next-app` (TypeScript template) and uses the
-following core technologies:
+## Core
 
-- **Next.js** 14.2.5 – framework for server-rendered React apps with file-based routing.
-- **React** 18.2.0 – UI library.
-- **shadcn CLI** – scaffolds accessible Tailwind/Radix components (configured via `components.json`).
-- **TypeScript** – statically typed JavaScript; `tsconfig.json` present.
-- **Tailwind CSS** 3.4.4 – utility-first styling framework (configured via `tailwind.config.ts` and `postcss.config.js`).
-- **ESLint** with `eslint-config-next` – linting for code quality.
+| Technology | Version | Purpose |
+|---|---|---|
+| Next.js | 16.1.6 | Framework — App Router, server components, API route handlers |
+| React | 18.2.0 | UI library |
+| TypeScript | 5.4.5 | Static typing |
+| Tailwind CSS | 3.4.4 | Utility-first styling |
 
-The application contains:
+## UI components
 
-- `app/` directory using the new Next.js App Router and nested layouts.
-- API routes under `app/api` using the new route handlers.
-- Components split under `components/` with subfolders for organization.
+- **shadcn CLI** — scaffolds accessible Tailwind/Radix components via `npx shadcn@latest add <component>`. Config lives in `components.json`. Generated code drops into `components/ui/`.
+- **Radix UI** — headless primitives used by shadcn components (`@radix-ui/react-dialog`, `@radix-ui/react-dropdown-menu`, `@radix-ui/react-slot`).
+- Custom components live in `components/` and `components/ui/`.
 
-## Suggestions for Improvements
+## Tooling
 
-1. **Dependency updates**
-   - The `next` dependency is flagged as having a security vulnerability; upgrade to a patched version when feasible.
-   - Run `npm audit fix` regularly and monitor dev‑dependency deprecations.
+| Tool | Config file | Purpose |
+|---|---|---|
+| ESLint 10 | `eslint.config.mjs` | Linting (flat config, typescript-eslint) |
+| Prettier | `prettier.config.js` | Code formatting |
+| TypeScript | `tsconfig.json` | Strict mode with `noImplicitAny`, `noUnusedLocals`, `noUnusedParameters`, `noImplicitReturns` |
+| Playwright | `playwright.config.ts` | End-to-end tests |
 
-2. **Type safety & linting**
-   - Strict TypeScript options enabled (`noImplicitAny`, `noUnusedLocals/Parameters`, `noImplicitReturns`, etc.).
-   - ESLint configuration added (`.eslintrc.json`) extending `next/core-web-vitals` with TypeScript-specific rules.
-   - Prettier added for consistent formatting; `format` script available.
+## API
 
-3. **Style tooling**
-   - Prettier config (`prettier.config.js`) enforces quotes, trailing commas, print width, etc.
-   - `npm run format` applies style rules across source files.
+- **NHTSA vPIC API** — free public API for VIN decoding (`/api/vin` route). No API key required.
+- All other routes use an **in-memory store** (`lib/store.ts`) — resets on server restart.
 
-4. **Testing**
-   - Added Playwright for end‑to‑end tests (`@playwright/test`).
-   - Configuration in `playwright.config.ts`, sample test in `tests/`.
-   - Use `npm run test:e2e` to execute tests; browsers installed via `npx playwright install`.
+## CI
 
-4. **Testing**
-   - Introduce a testing framework (Jest/Playwright/React Testing Library) and add basic unit and E2E tests.
+GitHub Actions (`.github/workflows/ci.yml`) runs on every push/PR to `main`:
 
-5. **Docs & onboarding**
-   - Continue documenting architecture decisions or API contracts under `docs/`.
-   - Include setup instructions and common commands in README.
+1. `npm ci` — clean install
+2. `npm run lint` — ESLint
+3. `npm run typecheck` — TypeScript
+4. `npm run build` — Next.js production build
+5. `npm run start &` + `wait-on` — start production server
+6. `npm run test:e2e` — Playwright
+7. Lighthouse performance audit (logged, non-blocking)
 
-6. **Performance & CI**
-   - CI pipeline added (`.github/workflows/ci.yml`) running lint, typecheck, build, and
-     Playwright tests on push/pull requests.
-   - Pipeline also executes a Lighthouse performance audit and logs the score.
-   - Consider further static analysis or enforce budgets in CI.
+## Project structure
 
-2. **Type safety & linting**
-   - Enable stricter TypeScript compiler options (e.g. `noImplicitAny`, `strict`).
-   - Add custom ESLint rules or Prettier integration for consistent style.
+```
+app/
+  api/           API route handlers
+    vin/         VIN decode (NHTSA)
+    leads/       Lead creation + bid submission
+    dealers/     Dealer signup
+  d/[id]/        Dealer lead view
+  sell/          Seller flow
+  thank-you/[id] Post-submission confirmation
+  dealers/       Dealer signup page
+components/
+  dealer/        DealerBidPanel, DealerSignupForm, SellerContactReveal
+  sell/          ChatAgent, PhotoPicker
+  ui/            Button, Card, Chip, Input, etc.
+lib/
+  store.ts       In-memory lead/dealer store
+  types.ts       Shared TypeScript types
+  validators.ts  VIN, phone validation helpers
+docs/            Documentation
+.github/
+  workflows/     CI configuration
+```
 
-3. **Testing**
-   - Introduce a testing framework (Jest/Playwright/React Testing Library) and add basic unit and E2E tests.
+## Known production gaps
 
-4. **Docs & onboarding**
-   - Continue documenting architecture decisions or API contracts under `docs/`.
-   - Include setup instructions and common commands in README.
+See `docs/FLOW_ANALYSIS.md` for a full list. Key items:
 
-5. **Performance & CI**
-   - Add a CI pipeline (GitHub Actions) for building, linting, and tests.
-   - Consider adding static analysis (e.g. Lighthouse) or performance budgets.
-
----
-
-This file can serve as a reference for new contributors or future audits.
+- In-memory store — needs a persistent database before going live
+- No SMS integration — bid notifications and OTP are not implemented
+- No dealer authentication — `/d/{id}` links are unauthenticated
+- No seller bid-tracking dashboard
