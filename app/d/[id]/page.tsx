@@ -2,6 +2,7 @@ import { getLead } from '@/lib/store';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { DealerBidPanel } from '@/components/dealer/DealerBidPanel';
+import { SellerContactReveal } from '@/components/dealer/SellerContactReveal';
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -169,35 +170,13 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
       <div className="mt-4">
         <Card className="p-5">
           <div className="text-sm font-medium text-zinc-900">Seller contact</div>
-          <div className="mt-2 text-sm text-zinc-700">
-            <div className="font-medium text-zinc-900">{d.contact.name ?? '—'}</div>
-            <div className="mt-1">{d.contact.phone ?? '—'}</div>
-            {d.contact.email ? <div className="mt-1">{d.contact.email}</div> : null}
-          </div>
-
-          <div className="mt-4 flex gap-2">
-            {d.contact.phone ? (
-              <a
-                className="flex-1 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-medium text-zinc-900 hover:bg-zinc-50"
-                href={`sms:${encodeURIComponent(d.contact.phone)}?&body=${encodeURIComponent(
-                  `Hey ${d.contact.name ?? ''} — saw your ${carTitle} on Car Offer AI. I can offer $____ cash. When can you talk?`
-                )}`}
-              >
-                Text seller
-              </a>
-            ) : null}
-            {d.contact.email ? (
-              <a
-                className="flex-1 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-medium text-zinc-900 hover:bg-zinc-50"
-                href={`mailto:${encodeURIComponent(d.contact.email)}?subject=${encodeURIComponent('Car Offer AI — cash offer')}`}
-              >
-                Email
-              </a>
-            ) : null}
-          </div>
-
-          <div className="mt-3 text-xs text-zinc-500">
-            Note: seller contact is shared to enable fast deals. Handle responsibly.
+          <div className="mt-3">
+            <SellerContactReveal
+              name={d.contact.name ?? '—'}
+              phone={d.contact.phone}
+              email={d.contact.email}
+              carTitle={carTitle}
+            />
           </div>
         </Card>
       </div>

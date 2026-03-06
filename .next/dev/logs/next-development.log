@@ -1,54 +1,576 @@
-[00:00:00.703] Server  LOG     ✓ Ready in 507ms
-[00:00:17.634] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:18.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:02.889] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:03:04.136] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:06:34.672] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:15:21.803] Server  LOG     ✓ Compiled in 607ms
-[00:15:22.362] Browser ERROR   ./app/globals.css
-Error evaluating Node.js code
-Error: Cannot find module 'tailwindcss-animate'
-Require stack:
-- /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts
-    [at Module._resolveFilename (node:internal/modules/cjs/loader:1455:15)]
-    [at require.resolve (node:internal/modules/helpers:163:19)]
-    [at _resolve (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:246378)]
-    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249092)]
-    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts:61:13]
-    [at evalModule (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:251913)]
-    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249841)]
-    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:53:30]
-    [at loadConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:55:6)]
-    [at getTailwindConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:74:116)]
+[00:00:01.629] Server  LOG     ✓ Ready in 1399ms
+[00:00:14.718] Server  ERROR   ⨯ ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
 
 Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-[00:15:23.746] Server  LOG     ✓ Compiled in 707ms
-[00:15:23.812] Browser ERROR   ./app/globals.css
-Error evaluating Node.js code
-Error: Cannot find module 'tailwindcss-animate'
-Require stack:
-- /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts
-    [at Module._resolveFilename (node:internal/modules/cjs/loader:1455:15)]
-    [at require.resolve (node:internal/modules/helpers:163:19)]
-    [at _resolve (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:246378)]
-    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249092)]
-    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts:61:13]
-    [at evalModule (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:251913)]
-    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249841)]
-    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:53:30]
-    [at loadConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:55:6)]
-    [at getTailwindConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:74:116)]
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:00:14.848] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
 
 Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-[00:19:16.357] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:20:06.647] Server  LOG     ✓ Compiled in 20ms
-[00:23:13.193] Server  LOG     ✓ Compiled in 122ms
-[00:23:13.249] Server  LOG     ✓ Compiled in 29ms
-[00:25:40.085] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:29:49.382] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:15.151] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:15.151] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:15.155] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:15.160] Server  ERROR   ⨯ ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:00:15.299] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:15.684] Browser ERROR   uncaughtError: Error: ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:00:15.685] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:15.685] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:18.185] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:18.185] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:28.334] Browser ERROR   uncaughtError: Error: ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:00:28.470] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:28.470] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:35.801] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:35.801] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:42.155] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:50.906] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:00:58.228] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:01:27.875] Browser ERROR   uncaughtError: Error: ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:01:28.019] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:01:28.019] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:01:31.269] Browser ERROR   uncaughtError: Error: ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:01:31.408] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:01:31.408] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:02:57.378] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={e => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:03:22.661] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={e => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:03:28.808] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:06:22.223] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:06:22.492] Browser ERROR   uncaughtError: Error: ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+
+
+[00:06:22.629] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:06:22.629] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:07:20.511] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:07:22.243] Browser ERROR   ./components/SellFlow.tsx:335:29
+Parsing ecmascript source code failed
+  333 |
+  334 |                     <Input
+> 335 |                       label=”Mobile phone (required)”
+      |                             ^
+  336 |                       placeholder=”(555) 555-5555”
+  337 |                       value={draft.contact.phone ?? “”}
+  338 |                       onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
+
+Unexpected character '”'
+
+Import trace:
+  Server Component:
+    ./components/SellFlow.tsx
+    ./app/sell/page.tsx
+[00:08:10.710] Server  LOG     ✓ Compiled in 22ms

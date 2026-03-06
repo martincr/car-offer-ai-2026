@@ -19,7 +19,7 @@ function TopBar() {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                     href: "/",
                     className: "font-semibold tracking-tight text-zinc-900",
-                    children: "Car Offer"
+                    children: "Car Offer (Demo)"
                 }, void 0, false, {
                     fileName: "[project]/components/TopBar.tsx",
                     lineNumber: 7,
@@ -31,7 +31,7 @@ function TopBar() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                             href: "/sell",
                             className: "hover:text-zinc-900",
-                            children: "Sell"
+                            children: "Sell Your Car"
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.tsx",
                             lineNumber: 11,
@@ -40,7 +40,7 @@ function TopBar() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                             href: "/dealers",
                             className: "hover:text-zinc-900",
-                            children: "Dealers"
+                            children: "Dealer Access"
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.tsx",
                             lineNumber: 14,
@@ -78,9 +78,9 @@ function Footer() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
         className: "border-t border-zinc-200/70 bg-white/60 backdrop-blur",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "mx-auto max-w-md px-4 py-6 text-xs leading-relaxed text-zinc-600",
+            className: "mx-auto max-w-md px-4 py-6 text-center text-xs leading-relaxed text-zinc-600",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                children: "From QURESHI MEDIA LLC. Small softwware movement."
+                children: "© 2026 QURESHI MEDIA LLC. Small software movement."
             }, void 0, false, {
                 fileName: "[project]/components/Footer.tsx",
                 lineNumber: 5,
@@ -115,8 +115,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Footer$2e$tsx_
 ;
 ;
 const metadata = {
-    title: 'Car Offer AI',
-    description: 'Get a cash offer from real car dealers. Fast.'
+    title: 'Get Cash Offers for Your Car | Car Offer AI',
+    description: 'Sell your car fast. Enter your VIN and get competing cash offers from real local dealers — no haggling, no dealership visits required.',
+    openGraph: {
+        title: 'Get Cash Offers for Your Car | Car Offer AI',
+        description: 'Real dealers compete for your car. See offers in minutes.',
+        type: 'website'
+    }
 };
 function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -127,29 +132,29 @@ function RootLayout({ children }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["TopBar"], {}, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 16,
+                        lineNumber: 21,
                         columnNumber: 11
                     }, this),
                     children,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Footer$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                         fileName: "[project]/app/layout.tsx",
-                        lineNumber: 18,
+                        lineNumber: 23,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/layout.tsx",
-                lineNumber: 15,
+                lineNumber: 20,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/layout.tsx",
-            lineNumber: 14,
+            lineNumber: 19,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 13,
+        lineNumber: 18,
         columnNumber: 5
     }, this);
 }

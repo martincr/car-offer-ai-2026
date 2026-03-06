@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/Input';
 import { Progress } from '@/components/ui/Progress';
 import { Textarea } from '@/components/ui/Textarea';
 import { LeadDraft, Condition, ExistingOfferSource } from '@/lib/types';
-import { cleanVin, formatPhone, isProbablyPhone, isValidVin } from '@/lib/validators';
+import { cleanVin, formatPhone, isValidVin } from '@/lib/validators';
 import { ChatAgent } from '@/components/sell/ChatAgent';
 import { PhotoPicker } from '@/components/sell/PhotoPicker';
 
@@ -42,11 +42,6 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
   const [draft, setDraft] = useState<LeadDraft>(() => emptyDraft(initialVin));
   const [vinLoading, setVinLoading] = useState(false);
   const [vinError, setVinError] = useState<string | null>(null);
-
-  // Phone OTP (UI placeholder)
-  const [otpSent, setOtpSent] = useState(false);
-  const [otp, setOtp] = useState('');
-  const [otpError, setOtpError] = useState<string | null>(null);
 
   // Files (keep originals for preview; data URLs stored in draft on submit)
   const [photoFiles, setPhotoFiles] = useState<File[]>([]);
@@ -123,8 +118,7 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       case 2:
         return (
           Boolean(draft.contact.name?.trim()) &&
-          Boolean(draft.contact.phone?.trim()) &&
-          draft.contact.phoneVerified === true
+          Boolean(draft.contact.phone?.trim())
         );
       case 3:
         return Boolean(draft.location?.zip?.trim()) && Boolean(draft.mileage?.trim());
@@ -340,71 +334,11 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
                     <Input
                       label="Mobile phone (required)"
                       placeholder="(555) 555-5555"
-                      value={draft.contact.phone ?? ''}
-                      onChange={e =>
-                        updateContact({ phone: formatPhone(e.target.value), phoneVerified: false })
-                      }
+                      value={draft.contact.phone ?? ""}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact({ phone: formatPhone(e.target.value) })}
                       inputMode="tel"
-                      hint={
-                        draft.contact.phoneVerified
-                          ? 'Verified ✓'
-                          : 'We’ll send a quick code to verify.'
-                      }
+                      hint="Dealers will text you their cash offer."
                     />
-
-                    {!draft.contact.phoneVerified ? (
-                      <div className="rounded-2xl border border-zinc-200 bg-white p-4">
-                        <div className="text-sm font-medium text-zinc-900">Verify your number</div>
-                        <div className="mt-1 text-xs text-zinc-500">
-                          Prototype UI: no real SMS yet. Enter any 6 digits to “verify”.
-                        </div>
-
-                        <div className="mt-3 flex gap-2">
-                          <Button
-                            variant="secondary"
-                            onClick={() => {
-                              if (!isProbablyPhone(draft.contact.phone ?? '')) {
-                                setOtpError('Enter a valid phone number first.');
-                                return;
-                              }
-                              setOtpError(null);
-                              setOtpSent(true);
-                            }}
-                          >
-                            {otpSent ? 'Resend code' : 'Text me a code'}
-                          </Button>
-
-                          <div className="flex-1" />
-                        </div>
-
-                        {otpSent ? (
-                          <div className="mt-3 flex items-end gap-2">
-                            <div className="flex-1">
-                              <Input
-                                label="6‑digit code"
-                                placeholder="123456"
-                                value={otp}
-                                onChange={e => setOtp(e.target.value)}
-                                inputMode="numeric"
-                                error={otpError ?? undefined}
-                              />
-                            </div>
-                            <Button
-                              onClick={() => {
-                                if (!/^\d{6}$/.test(otp.trim())) {
-                                  setOtpError('Enter a 6‑digit code.');
-                                  return;
-                                }
-                                setOtpError(null);
-                                updateContact({ phoneVerified: true });
-                              }}
-                            >
-                              Verify
-                            </Button>
-                          </div>
-                        ) : null}
-                      </div>
-                    ) : null}
 
                     <Input
                       label="Email (optional)"

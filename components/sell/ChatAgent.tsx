@@ -16,7 +16,6 @@ type Stage =
   | 'confirm'
   | 'name'
   | 'phone'
-  | 'otp'
   | 'zip'
   | 'mileage'
   | 'title'
@@ -175,19 +174,8 @@ export function ChatAgent({
           push('assistant', 'That phone number looks short. Try again (include area code).');
           return;
         }
-        updateContact({ phone, phoneVerified: false });
-        push('assistant', 'Quick verify: enter any 6‑digit code (prototype UI).');
-        setStage('otp');
-        return;
-      }
-
-      if (stage === 'otp') {
-        if (!/^\d{6}$/.test(text)) {
-          push('assistant', 'Enter a 6‑digit code (like 123456).');
-          return;
-        }
-        updateContact({ phoneVerified: true });
-        push('assistant', 'Nice. What ZIP code is the car located in?');
+        updateContact({ phone });
+        push('assistant', 'What ZIP code is the car located in?');
         setStage('zip');
         return;
       }
@@ -516,14 +504,6 @@ export function ChatAgent({
           </Button>
         </div>
 
-        {!draft.contact.phoneVerified &&
-        draft.contact.phone &&
-        stage !== 'vin' &&
-        stage !== 'confirm' ? (
-          <div className="mt-2 text-xs text-zinc-500">
-            Note: phone verification is a prototype UI right now — no real SMS sent.
-          </div>
-        ) : null}
       </div>
     </Card>
   );

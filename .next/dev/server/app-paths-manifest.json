@@ -1,6 +1,4 @@
 {
-  "/api/vin/route": "app/api/vin/route.js",
-  "/dealers/page": "app/dealers/page.js",
   "/page": "app/page.js",
   "/sell/page": "app/sell/page.js"
 }
