@@ -65,7 +65,7 @@ function Page() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "text-3xl font-semibold tracking-tight text-zinc-900",
-                        children: "Dealer access"
+                        children: "Get first access to motivated sellers in your area."
                     }, void 0, false, {
                         fileName: "[project]/app/dealers/page.tsx",
                         lineNumber: 7,
@@ -73,7 +73,7 @@ function Page() {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "mt-3 text-sm leading-relaxed text-zinc-600",
-                        children: "Get real seller leads. View on your phone. Bid or pass."
+                        children: "Motivated sellers submit their car details. You get notified, review the lead on your phone, and bid — or pass. No cold calls, no lot traffic."
                     }, void 0, false, {
                         fileName: "[project]/app/dealers/page.tsx",
                         lineNumber: 8,
@@ -95,25 +95,6 @@ function Page() {
             }, void 0, false, {
                 fileName: "[project]/app/dealers/page.tsx",
                 lineNumber: 13,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-8 text-xs text-zinc-500",
-                children: [
-                    "Price: ",
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "font-medium text-zinc-800",
-                        children: "$500 buyer access fee"
-                    }, void 0, false, {
-                        fileName: "[project]/app/dealers/page.tsx",
-                        lineNumber: 18,
-                        columnNumber: 16
-                    }, this),
-                    " to activate."
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/dealers/page.tsx",
-                lineNumber: 17,
                 columnNumber: 7
             }, this)
         ]

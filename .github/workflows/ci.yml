@@ -10,15 +10,6 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    services:
-      web:
-        image: node:20-alpine
-        ports:
-          - 3000:3000
-        options: >-
-          --entrypoint sh
-          -c "npm install && npm run dev"
-
     steps:
       - uses: actions/checkout@v4
 
@@ -39,16 +30,19 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Start server
+        run: npm run start &
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
       - name: E2E tests
         env:
-          # ensure dev server is reachable
           CI: true
-        run: |
-          npm run test:e2e
+        run: npm run test:e2e
 
       - name: Lighthouse performance audit
         run: |
           npm install -g lighthouse@11
-          # run against local server
           npx lighthouse http://localhost:3000 --quiet --chrome-flags="--no-sandbox" --output=json --output-path=./lhreport.json || true
           cat lhreport.json | jq '.categories.performance.score' || true

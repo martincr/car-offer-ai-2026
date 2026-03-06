@@ -237,7 +237,7 @@ function DealerSignupForm() {
             if (!res.ok) throw new Error(json?.error ?? 'Failed to submit');
             setSubmitted({
                 ok: true,
-                message: 'Got it. Next step: we’ll send you a payment link for the $500 buyer access fee, then you’re live.'
+                message: "You’re in line. We’ll text you a payment link — once confirmed, you’ll start receiving leads immediately."
             });
         } catch (e) {
             setSubmitted({
@@ -254,7 +254,7 @@ function DealerSignupForm() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "text-lg font-semibold text-zinc-900",
-                children: "$500 buyer access"
+                children: "Get access to local seller leads"
             }, void 0, false, {
                 fileName: "[project]/components/dealer/DealerSignupForm.tsx",
                 lineNumber: 52,
@@ -262,7 +262,7 @@ function DealerSignupForm() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mt-1 text-sm text-zinc-600",
-                children: "One simple form. No fluff."
+                children: "Fill out the form and we'll send you a payment link to activate your account."
             }, void 0, false, {
                 fileName: "[project]/components/dealer/DealerSignupForm.tsx",
                 lineNumber: 53,
@@ -273,7 +273,7 @@ function DealerSignupForm() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                         label: "Dealership name",
-                        placeholder: "Acme Auto",
+                        placeholder: "Acme Autos",
                         value: dealershipName,
                         onChange: (e)=>setDealershipName(e.target.value)
                     }, void 0, false, {
@@ -343,7 +343,7 @@ function DealerSignupForm() {
                                     ' ',
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "font-medium text-zinc-900",
-                                        children: "$500 buyer access fee"
+                                        children: "one-time $500 buyer access fee"
                                     }, void 0, false, {
                                         fileName: "[project]/components/dealer/DealerSignupForm.tsx",
                                         lineNumber: 98,
@@ -382,7 +382,7 @@ function DealerSignupForm() {
                     }, this) : null,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "text-xs text-zinc-500",
-                        children: "Lean for now: we’ll text you a link to start viewing leads & bidding."
+                        children: "One-time fee. No monthly subscription. Cancel anytime."
                     }, void 0, false, {
                         fileName: "[project]/components/dealer/DealerSignupForm.tsx",
                         lineNumber: 114,

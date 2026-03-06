@@ -574,3 +574,4 @@ Import trace:
     ./components/SellFlow.tsx
     ./app/sell/page.tsx
 [00:08:10.710] Server  LOG     ✓ Compiled in 22ms
+[00:09:31.088] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis

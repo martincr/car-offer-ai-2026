@@ -725,22 +725,9 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                     return;
                 }
                 updateContact({
-                    phone,
-                    phoneVerified: false
+                    phone
                 });
-                push('assistant', 'Quick verify: enter any 6‑digit code (prototype UI).');
-                setStage('otp');
-                return;
-            }
-            if (stage === 'otp') {
-                if (!/^\d{6}$/.test(text)) {
-                    push('assistant', 'Enter a 6‑digit code (like 123456).');
-                    return;
-                }
-                updateContact({
-                    phoneVerified: true
-                });
-                push('assistant', 'Nice. What ZIP code is the car located in?');
+                push('assistant', 'What ZIP code is the car located in?');
                 setStage('zip');
                 return;
             }
@@ -958,7 +945,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                         children: "Chat / voice"
                     }, void 0, false, {
                         fileName: "[project]/components/sell/ChatAgent.tsx",
-                        lineNumber: 380,
+                        lineNumber: 368,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -966,13 +953,13 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                         children: "Same questions, just conversational."
                     }, void 0, false, {
                         fileName: "[project]/components/sell/ChatAgent.tsx",
-                        lineNumber: 381,
+                        lineNumber: 369,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                lineNumber: 379,
+                lineNumber: 367,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -987,12 +974,12 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     children: m.text
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 391,
+                                    lineNumber: 379,
                                     columnNumber: 15
                                 }, this)
                             }, idx, false, {
                                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                                lineNumber: 387,
+                                lineNumber: 375,
                                 columnNumber: 13
                             }, this)),
                         stage === 'photos' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1003,7 +990,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     setFiles: setPhotoFiles
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 403,
+                                    lineNumber: 391,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1011,13 +998,13 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     children: "Need at least 3 photos to continue."
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 404,
+                                    lineNumber: 392,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                            lineNumber: 402,
+                            lineNumber: 390,
                             columnNumber: 13
                         }, this) : null,
                         stage === 'offerUpload' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1028,7 +1015,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     children: "Upload offer"
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 410,
+                                    lineNumber: 398,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1036,7 +1023,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     children: "PDF or screenshot. Don’t edit it — dealers verify."
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 411,
+                                    lineNumber: 399,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1046,7 +1033,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     onChange: (e)=>setOfferFiles(Array.from(e.target.files ?? []))
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 414,
+                                    lineNumber: 402,
                                     columnNumber: 15
                                 }, this),
                                 offerFiles.length ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1057,13 +1044,13 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 421,
+                                    lineNumber: 409,
                                     columnNumber: 17
                                 }, this) : null
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                            lineNumber: 409,
+                            lineNumber: 397,
                             columnNumber: 13
                         }, this) : null,
                         showSubmit ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1074,7 +1061,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     children: "Ready to submit"
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 428,
+                                    lineNumber: 416,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1082,7 +1069,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     children: "We’ll syndicate this to dealers and text you bids."
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 429,
+                                    lineNumber: 417,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1095,7 +1082,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "VIN:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 435,
+                                                    lineNumber: 423,
                                                     columnNumber: 19
                                                 }, this),
                                                 ' ',
@@ -1104,13 +1091,13 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: draft.vin
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 436,
+                                                    lineNumber: 424,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                                            lineNumber: 434,
+                                            lineNumber: 422,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1120,7 +1107,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "Car:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 439,
+                                                    lineNumber: 427,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1134,7 +1121,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                                            lineNumber: 438,
+                                            lineNumber: 426,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1144,7 +1131,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "Contact:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 444,
+                                                    lineNumber: 432,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1155,7 +1142,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                                            lineNumber: 443,
+                                            lineNumber: 431,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1165,7 +1152,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "ZIP:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 448,
+                                                    lineNumber: 436,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1177,7 +1164,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "Mileage:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 449,
+                                                    lineNumber: 437,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1185,7 +1172,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                                            lineNumber: 447,
+                                            lineNumber: 435,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1195,7 +1182,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "Condition:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 452,
+                                                    lineNumber: 440,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1207,7 +1194,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "Accidents:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 453,
+                                                    lineNumber: 441,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1215,7 +1202,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                                            lineNumber: 451,
+                                            lineNumber: 439,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1225,7 +1212,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                                     children: "Photos:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                                    lineNumber: 456,
+                                                    lineNumber: 444,
                                                     columnNumber: 19
                                                 }, this),
                                                 " ",
@@ -1233,13 +1220,13 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                                            lineNumber: 455,
+                                            lineNumber: 443,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 433,
+                                    lineNumber: 421,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1251,36 +1238,36 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                         children: "Submit for bids"
                                     }, void 0, false, {
                                         fileName: "[project]/components/sell/ChatAgent.tsx",
-                                        lineNumber: 461,
+                                        lineNumber: 449,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 460,
+                                    lineNumber: 448,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                            lineNumber: 427,
+                            lineNumber: 415,
                             columnNumber: 13
                         }, this) : null,
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             ref: endRef
                         }, void 0, false, {
                             fileName: "[project]/components/sell/ChatAgent.tsx",
-                            lineNumber: 468,
+                            lineNumber: 456,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                    lineNumber: 385,
+                    lineNumber: 373,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                lineNumber: 384,
+                lineNumber: 372,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1293,12 +1280,12 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                 children: q
                             }, q, false, {
                                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                                lineNumber: 476,
+                                lineNumber: 464,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/sell/ChatAgent.tsx",
-                        lineNumber: 474,
+                        lineNumber: 462,
                         columnNumber: 11
                     }, this) : null,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1319,12 +1306,12 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/components/sell/ChatAgent.tsx",
-                                    lineNumber: 485,
+                                    lineNumber: 473,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                                lineNumber: 484,
+                                lineNumber: 472,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1336,7 +1323,7 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                 children: listening ? '…' : '🎤'
                             }, void 0, false, {
                                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                                lineNumber: 499,
+                                lineNumber: 487,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1347,33 +1334,25 @@ function ChatAgent({ draft, setDraft, photoFiles, setPhotoFiles, offerFiles, set
                                 children: "➤"
                             }, void 0, false, {
                                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                                lineNumber: 509,
+                                lineNumber: 497,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sell/ChatAgent.tsx",
-                        lineNumber: 483,
+                        lineNumber: 471,
                         columnNumber: 9
-                    }, this),
-                    !draft.contact.phoneVerified && draft.contact.phone && stage !== 'vin' && stage !== 'confirm' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-2 text-xs text-zinc-500",
-                        children: "Note: phone verification is a prototype UI right now — no real SMS sent."
-                    }, void 0, false, {
-                        fileName: "[project]/components/sell/ChatAgent.tsx",
-                        lineNumber: 523,
-                        columnNumber: 11
-                    }, this) : null
+                    }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sell/ChatAgent.tsx",
-                lineNumber: 472,
+                lineNumber: 460,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sell/ChatAgent.tsx",
-        lineNumber: 378,
+        lineNumber: 366,
         columnNumber: 5
     }, this);
 }
@@ -1437,10 +1416,6 @@ function SellFlow({ initialVin }) {
     const [draft, setDraft] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(()=>emptyDraft(initialVin));
     const [vinLoading, setVinLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [vinError, setVinError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    // Phone OTP (UI placeholder)
-    const [otpSent, setOtpSent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [otp, setOtp] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
-    const [otpError, setOtpError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     // Files (keep originals for preview; data URLs stored in draft on submit)
     const [photoFiles, setPhotoFiles] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [offerFiles, setOfferFiles] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -1541,7 +1516,7 @@ function SellFlow({ initialVin }) {
             case 1:
                 return draft.confirmedVehicle === true;
             case 2:
-                return Boolean(draft.contact.name?.trim()) && Boolean(draft.contact.phone?.trim()) && draft.contact.phoneVerified === true;
+                return Boolean(draft.contact.name?.trim()) && Boolean(draft.contact.phone?.trim());
             case 3:
                 return Boolean(draft.location?.zip?.trim()) && Boolean(draft.mileage?.trim());
             case 4:
@@ -1610,7 +1585,7 @@ function SellFlow({ initialVin }) {
                         children: "Get a cash offer"
                     }, void 0, false, {
                         fileName: "[project]/components/SellFlow.tsx",
-                        lineNumber: 184,
+                        lineNumber: 178,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1618,13 +1593,13 @@ function SellFlow({ initialVin }) {
                         children: "Fast, simple, mobile-first."
                     }, void 0, false, {
                         fileName: "[project]/components/SellFlow.tsx",
-                        lineNumber: 185,
+                        lineNumber: 179,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/SellFlow.tsx",
-                lineNumber: 183,
+                lineNumber: 177,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -1638,7 +1613,7 @@ function SellFlow({ initialVin }) {
                             children: "Quick questions"
                         }, void 0, false, {
                             fileName: "[project]/components/SellFlow.tsx",
-                            lineNumber: 190,
+                            lineNumber: 184,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1647,18 +1622,18 @@ function SellFlow({ initialVin }) {
                             children: "Chat / voice"
                         }, void 0, false, {
                             fileName: "[project]/components/SellFlow.tsx",
-                            lineNumber: 200,
+                            lineNumber: 194,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/SellFlow.tsx",
-                    lineNumber: 189,
+                    lineNumber: 183,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/SellFlow.tsx",
-                lineNumber: 188,
+                lineNumber: 182,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1673,7 +1648,7 @@ function SellFlow({ initialVin }) {
                     onSubmit: onSubmit
                 }, void 0, false, {
                     fileName: "[project]/components/SellFlow.tsx",
-                    lineNumber: 215,
+                    lineNumber: 209,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                     children: [
@@ -1684,7 +1659,7 @@ function SellFlow({ initialVin }) {
                                     value: progress
                                 }, void 0, false, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 227,
+                                    lineNumber: 221,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1697,13 +1672,13 @@ function SellFlow({ initialVin }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 228,
+                                    lineNumber: 222,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/SellFlow.tsx",
-                            lineNumber: 226,
+                            lineNumber: 220,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -1716,7 +1691,7 @@ function SellFlow({ initialVin }) {
                                             children: "What’s your VIN?"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 236,
+                                            lineNumber: 230,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1724,7 +1699,7 @@ function SellFlow({ initialVin }) {
                                             children: "Dealers need this to verify your exact car."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 237,
+                                            lineNumber: 231,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1744,12 +1719,12 @@ function SellFlow({ initialVin }) {
                                                 hint: "Usually on the driver-side dashboard (near the windshield) or driver door jamb."
                                             }, void 0, false, {
                                                 fileName: "[project]/components/SellFlow.tsx",
-                                                lineNumber: 242,
+                                                lineNumber: 236,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 235,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1763,7 +1738,7 @@ function SellFlow({ initialVin }) {
                                                     children: vinLoading ? 'Decoding…' : 'Continue'
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 257,
+                                                    lineNumber: 251,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1773,19 +1748,19 @@ function SellFlow({ initialVin }) {
                                                     children: "Where is it?"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 259,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 256,
+                                            lineNumber: 250,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 229,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 1 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1795,7 +1770,7 @@ function SellFlow({ initialVin }) {
                                             children: "Is this your car?"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 282,
+                                            lineNumber: 276,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1803,7 +1778,7 @@ function SellFlow({ initialVin }) {
                                             children: "We decoded your VIN."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 283,
+                                            lineNumber: 277,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1814,7 +1789,7 @@ function SellFlow({ initialVin }) {
                                                     children: "VIN"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 286,
+                                                    lineNumber: 280,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1822,7 +1797,7 @@ function SellFlow({ initialVin }) {
                                                     children: vinClean
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 287,
+                                                    lineNumber: 281,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1830,7 +1805,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Vehicle"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 289,
+                                                    lineNumber: 283,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1846,13 +1821,13 @@ function SellFlow({ initialVin }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 284,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 285,
+                                            lineNumber: 279,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1870,7 +1845,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Yes, that’s it"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 298,
+                                                    lineNumber: 292,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1888,19 +1863,19 @@ function SellFlow({ initialVin }) {
                                                     children: "Nope"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 308,
+                                                    lineNumber: 302,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 297,
+                                            lineNumber: 291,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 281,
+                                    lineNumber: 275,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 2 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1910,7 +1885,7 @@ function SellFlow({ initialVin }) {
                                             children: "Where should dealers reach you?"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 325,
+                                            lineNumber: 319,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1918,7 +1893,7 @@ function SellFlow({ initialVin }) {
                                             children: "Dealers will text you a cash offer. We keep this simple."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 322,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1933,126 +1908,23 @@ function SellFlow({ initialVin }) {
                                                         })
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 333,
+                                                    lineNumber: 327,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                     label: "Mobile phone (required)",
                                                     placeholder: "(555) 555-5555",
-                                                    value: draft.contact.phone ?? '',
+                                                    value: draft.contact.phone ?? "",
                                                     onChange: (e)=>updateContact({
-                                                            phone: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$validators$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatPhone"])(e.target.value),
-                                                            phoneVerified: false
+                                                            phone: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$validators$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatPhone"])(e.target.value)
                                                         }),
                                                     inputMode: "tel",
-                                                    hint: draft.contact.phoneVerified ? 'Verified ✓' : 'We’ll send a quick code to verify.'
+                                                    hint: "Dealers will text you their cash offer."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 340,
+                                                    lineNumber: 334,
                                                     columnNumber: 21
                                                 }, this),
-                                                !draft.contact.phoneVerified ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "rounded-2xl border border-zinc-200 bg-white p-4",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "text-sm font-medium text-zinc-900",
-                                                            children: "Verify your number"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 357,
-                                                            columnNumber: 25
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "mt-1 text-xs text-zinc-500",
-                                                            children: "Prototype UI: no real SMS yet. Enter any 6 digits to “verify”."
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 358,
-                                                            columnNumber: 25
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "mt-3 flex gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                                    variant: "secondary",
-                                                                    onClick: ()=>{
-                                                                        if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$validators$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isProbablyPhone"])(draft.contact.phone ?? '')) {
-                                                                            setOtpError('Enter a valid phone number first.');
-                                                                            return;
-                                                                        }
-                                                                        setOtpError(null);
-                                                                        setOtpSent(true);
-                                                                    },
-                                                                    children: otpSent ? 'Resend code' : 'Text me a code'
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 363,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex-1"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 377,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 362,
-                                                            columnNumber: 25
-                                                        }, this),
-                                                        otpSent ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "mt-3 flex items-end gap-2",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex-1",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
-                                                                        label: "6‑digit code",
-                                                                        placeholder: "123456",
-                                                                        value: otp,
-                                                                        onChange: (e)=>setOtp(e.target.value),
-                                                                        inputMode: "numeric",
-                                                                        error: otpError ?? undefined
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/components/SellFlow.tsx",
-                                                                        lineNumber: 383,
-                                                                        columnNumber: 31
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 382,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                                                    onClick: ()=>{
-                                                                        if (!/^\d{6}$/.test(otp.trim())) {
-                                                                            setOtpError('Enter a 6‑digit code.');
-                                                                            return;
-                                                                        }
-                                                                        setOtpError(null);
-                                                                        updateContact({
-                                                                            phoneVerified: true
-                                                                        });
-                                                                    },
-                                                                    children: "Verify"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 392,
-                                                                    columnNumber: 29
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 381,
-                                                            columnNumber: 27
-                                                        }, this) : null
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 356,
-                                                    columnNumber: 23
-                                                }, this) : null,
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                                     label: "Email (optional)",
                                                     placeholder: "you@email.com",
@@ -2063,19 +1935,19 @@ function SellFlow({ initialVin }) {
                                                     inputMode: "email"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 409,
+                                                    lineNumber: 343,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 332,
+                                            lineNumber: 326,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 324,
+                                    lineNumber: 318,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 3 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2085,7 +1957,7 @@ function SellFlow({ initialVin }) {
                                             children: "Basics"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 422,
+                                            lineNumber: 356,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2093,7 +1965,7 @@ function SellFlow({ initialVin }) {
                                             children: "Dealers mostly care about location + mileage."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 423,
+                                            lineNumber: 357,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2110,7 +1982,7 @@ function SellFlow({ initialVin }) {
                                                     hint: "Where the car is located."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 428,
+                                                    lineNumber: 362,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2123,19 +1995,19 @@ function SellFlow({ initialVin }) {
                                                     inputMode: "numeric"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 437,
+                                                    lineNumber: 371,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 427,
+                                            lineNumber: 361,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 421,
+                                    lineNumber: 355,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 4 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2145,7 +2017,7 @@ function SellFlow({ initialVin }) {
                                             children: "Title & loan"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 450,
+                                            lineNumber: 384,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2153,7 +2025,7 @@ function SellFlow({ initialVin }) {
                                             children: "This affects how fast a dealer can pay you."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 451,
+                                            lineNumber: 385,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2164,7 +2036,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Do you have the title in hand?"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 456,
+                                                    lineNumber: 390,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2181,7 +2053,7 @@ function SellFlow({ initialVin }) {
                                                             children: "Yes"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 460,
+                                                            lineNumber: 394,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Chip$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Chip"], {
@@ -2192,19 +2064,19 @@ function SellFlow({ initialVin }) {
                                                             children: "No"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 473,
+                                                            lineNumber: 407,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 459,
+                                                    lineNumber: 393,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 455,
+                                            lineNumber: 389,
                                             columnNumber: 19
                                         }, this),
                                         draft.title?.titleInHand === 'No' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2215,7 +2087,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Is there a loan on it?"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 484,
+                                                    lineNumber: 418,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2229,7 +2101,7 @@ function SellFlow({ initialVin }) {
                                                             children: "Yes"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 488,
+                                                            lineNumber: 422,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Chip$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Chip"], {
@@ -2242,13 +2114,13 @@ function SellFlow({ initialVin }) {
                                                             children: "No"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 494,
+                                                            lineNumber: 428,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 421,
                                                     columnNumber: 23
                                                 }, this),
                                                 draft.title?.hasLoan === 'Yes' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2263,7 +2135,7 @@ function SellFlow({ initialVin }) {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 506,
+                                                            lineNumber: 440,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2276,25 +2148,25 @@ function SellFlow({ initialVin }) {
                                                             inputMode: "numeric"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 512,
+                                                            lineNumber: 446,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 505,
+                                                    lineNumber: 439,
                                                     columnNumber: 25
                                                 }, this) : null
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 483,
+                                            lineNumber: 417,
                                             columnNumber: 21
                                         }, this) : null
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 449,
+                                    lineNumber: 383,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 5 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2304,7 +2176,7 @@ function SellFlow({ initialVin }) {
                                             children: "Condition"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 528,
+                                            lineNumber: 462,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2312,7 +2184,7 @@ function SellFlow({ initialVin }) {
                                             children: "Pick the closest match. No overthinking."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 529,
+                                            lineNumber: 463,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2333,7 +2205,7 @@ function SellFlow({ initialVin }) {
                                                             children: c
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 544,
+                                                            lineNumber: 478,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2346,23 +2218,23 @@ function SellFlow({ initialVin }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 545,
+                                                            lineNumber: 479,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, c, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 535,
+                                                    lineNumber: 469,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 533,
+                                            lineNumber: 467,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Divider$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Divider"], {}, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 557,
+                                            lineNumber: 491,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2372,7 +2244,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Any accidents?"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 560,
+                                                    lineNumber: 494,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2386,7 +2258,7 @@ function SellFlow({ initialVin }) {
                                                             children: "No"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 562,
+                                                            lineNumber: 496,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Chip$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Chip"], {
@@ -2397,7 +2269,7 @@ function SellFlow({ initialVin }) {
                                                             children: "Yes"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 568,
+                                                            lineNumber: 502,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Chip$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Chip"], {
@@ -2408,19 +2280,19 @@ function SellFlow({ initialVin }) {
                                                             children: "Not sure"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 574,
+                                                            lineNumber: 508,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 561,
+                                                    lineNumber: 495,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 559,
+                                            lineNumber: 493,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2434,18 +2306,18 @@ function SellFlow({ initialVin }) {
                                                     })
                                             }, void 0, false, {
                                                 fileName: "[project]/components/SellFlow.tsx",
-                                                lineNumber: 584,
+                                                lineNumber: 518,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 583,
+                                            lineNumber: 517,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 527,
+                                    lineNumber: 461,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 6 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2455,7 +2327,7 @@ function SellFlow({ initialVin }) {
                                             children: "Photos"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 596,
+                                            lineNumber: 530,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2463,7 +2335,7 @@ function SellFlow({ initialVin }) {
                                             children: "Upload at least 3. More = better offers."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 597,
+                                            lineNumber: 531,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2474,7 +2346,7 @@ function SellFlow({ initialVin }) {
                                                     setFiles: setPhotoFiles
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 602,
+                                                    lineNumber: 536,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2482,19 +2354,19 @@ function SellFlow({ initialVin }) {
                                                     children: "Tips: 4 corners, interior, odometer, any damage."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 603,
+                                                    lineNumber: 537,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 601,
+                                            lineNumber: 535,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 595,
+                                    lineNumber: 529,
                                     columnNumber: 17
                                 }, this) : null,
                                 step === 7 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2504,7 +2376,7 @@ function SellFlow({ initialVin }) {
                                             children: "Existing offer?"
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 612,
+                                            lineNumber: 546,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2512,7 +2384,7 @@ function SellFlow({ initialVin }) {
                                             children: "If you already have a Carvana or CarMax offer, upload it. Dealers will verify it."
                                         }, void 0, false, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 613,
+                                            lineNumber: 547,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2523,7 +2395,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Do you have a valid offer?"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 619,
+                                                    lineNumber: 553,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2543,18 +2415,18 @@ function SellFlow({ initialVin }) {
                                                             children: s === 'None' ? 'No' : s
                                                         }, s, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 624,
+                                                            lineNumber: 558,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 622,
+                                                    lineNumber: 556,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 618,
+                                            lineNumber: 552,
                                             columnNumber: 19
                                         }, this),
                                         (draft.existingOffer?.source ?? 'None') !== 'None' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2565,7 +2437,7 @@ function SellFlow({ initialVin }) {
                                                     children: "Offer details"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 639,
+                                                    lineNumber: 573,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2573,7 +2445,7 @@ function SellFlow({ initialVin }) {
                                                     children: "⚠️ Don’t edit screenshots / PDFs. Dealers check."
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 640,
+                                                    lineNumber: 574,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2589,7 +2461,7 @@ function SellFlow({ initialVin }) {
                                                             inputMode: "numeric"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 645,
+                                                            lineNumber: 579,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2602,7 +2474,7 @@ function SellFlow({ initialVin }) {
                                                             inputMode: "text"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 652,
+                                                            lineNumber: 586,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2613,7 +2485,7 @@ function SellFlow({ initialVin }) {
                                                                     children: "Upload offer"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 661,
+                                                                    lineNumber: 595,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2621,7 +2493,7 @@ function SellFlow({ initialVin }) {
                                                                     children: "PDF or screenshot."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 662,
+                                                                    lineNumber: 596,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2631,7 +2503,7 @@ function SellFlow({ initialVin }) {
                                                                     onChange: (e)=>setOfferFiles(Array.from(e.target.files ?? []))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 663,
+                                                                    lineNumber: 597,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 offerFiles.length ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2642,37 +2514,37 @@ function SellFlow({ initialVin }) {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                                    lineNumber: 670,
+                                                                    lineNumber: 604,
                                                                     columnNumber: 29
                                                                 }, this) : null
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/SellFlow.tsx",
-                                                            lineNumber: 660,
+                                                            lineNumber: 594,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/SellFlow.tsx",
-                                                    lineNumber: 644,
+                                                    lineNumber: 578,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/SellFlow.tsx",
-                                            lineNumber: 638,
+                                            lineNumber: 572,
                                             columnNumber: 21
                                         }, this) : null
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/SellFlow.tsx",
-                                    lineNumber: 611,
+                                    lineNumber: 545,
                                     columnNumber: 17
                                 }, this) : null
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/SellFlow.tsx",
-                            lineNumber: 233,
+                            lineNumber: 227,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2688,7 +2560,7 @@ function SellFlow({ initialVin }) {
                                         children: "Back"
                                     }, void 0, false, {
                                         fileName: "[project]/components/SellFlow.tsx",
-                                        lineNumber: 684,
+                                        lineNumber: 618,
                                         columnNumber: 17
                                     }, this),
                                     step < TOTAL_STEPS - 1 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2705,7 +2577,7 @@ function SellFlow({ initialVin }) {
                                         children: "Continue"
                                     }, void 0, false, {
                                         fileName: "[project]/components/SellFlow.tsx",
-                                        lineNumber: 694,
+                                        lineNumber: 628,
                                         columnNumber: 19
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                         className: "flex-1",
@@ -2715,31 +2587,31 @@ function SellFlow({ initialVin }) {
                                         children: "Submit for bids"
                                     }, void 0, false, {
                                         fileName: "[project]/components/SellFlow.tsx",
-                                        lineNumber: 709,
+                                        lineNumber: 643,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/SellFlow.tsx",
-                                lineNumber: 683,
+                                lineNumber: 617,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/SellFlow.tsx",
-                            lineNumber: 682,
+                            lineNumber: 616,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true)
             }, void 0, false, {
                 fileName: "[project]/components/SellFlow.tsx",
-                lineNumber: 213,
+                lineNumber: 207,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/SellFlow.tsx",
-        lineNumber: 182,
+        lineNumber: 176,
         columnNumber: 5
     }, this);
 }
