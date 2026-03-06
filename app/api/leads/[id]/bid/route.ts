@@ -5,8 +5,9 @@ function id(prefix: string) {
   return `${prefix}_${Math.random().toString(36).slice(2, 8)}${Date.now().toString(36).slice(4)}`;
 }
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
-  const lead = getLead(params.id);
+export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id: leadId } = await params;
+  const lead = getLead(leadId);
   if (!lead) return NextResponse.json({ error: 'Lead not found' }, { status: 404 });
 
   let body: any = null;
@@ -34,7 +35,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
     dealerName: dealerName || undefined,
   };
 
-  const updated = addBid(params.id, bid);
+  const updated = addBid(leadId, bid);
   if (!updated) return NextResponse.json({ error: 'Failed to add bid' }, { status: 500 });
 
   return NextResponse.json({ ok: true });
