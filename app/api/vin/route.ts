@@ -44,7 +44,7 @@ export async function GET(req: Request) {
     };
 
     return NextResponse.json({ vin, vehicle });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: 'VIN decode error' }, { status: 502 });
   }
 }

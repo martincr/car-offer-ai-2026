@@ -70,7 +70,6 @@ export function ChatAgent({
     setMessages([
       { role: 'assistant', text: 'Hi — I’m Car Offer AI. What’s your VIN? (17 characters)' },
     ]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -323,7 +322,6 @@ export function ChatAgent({
       push('assistant', 'Got the photos. Do you already have a Carvana or CarMax offer?');
       setStage('offer');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage, photoFiles.length]);
 
   useEffect(() => {
@@ -331,7 +329,6 @@ export function ChatAgent({
       push('assistant', 'Offer uploaded. Ready to submit for dealer bids.');
       setStage('done');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage, offerFiles.length]);
 
   function startVoice() {

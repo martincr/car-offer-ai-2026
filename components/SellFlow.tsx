@@ -61,7 +61,6 @@ export function SellFlow({ initialVin }: { initialVin?: string }) {
       didAutoDecode.current = true;
       decodeVin();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vinOk]);
 
   function updateDraft(next: Partial<LeadDraft>) {

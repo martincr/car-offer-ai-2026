@@ -24,7 +24,6 @@ export function PhotoPicker({
 }) {
   const previews = useMemo(() => {
     return files.map(f => ({ file: f, url: URL.createObjectURL(f) }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files.map(f => `${f.name}-${f.size}-${f.lastModified}`).join('|')]);
 
   return (
@@ -63,7 +62,6 @@ export function PhotoPicker({
                 key={idx}
                 className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.url} alt={`Photo ${idx + 1}`} className="h-24 w-full object-cover" />
                 <button
                   className="absolute right-1 top-1 rounded-full bg-white/90 px-2 py-1 text-xs text-zinc-900 shadow"

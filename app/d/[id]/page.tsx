@@ -156,7 +156,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                   rel="noreferrer"
                   className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={src} alt={`Photo ${idx + 1}`} className="h-40 w-full object-cover" />
                 </a>
               ))}
