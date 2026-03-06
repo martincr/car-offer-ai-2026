@@ -3,8 +3,9 @@ import { getLead } from '@/lib/store';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
-export default function Page({ params }: { params: { id: string } }) {
-  const lead = getLead(params.id);
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const lead = getLead(id);
 
   return (
     <main className="mx-auto max-w-md px-4 pb-10 pt-10">

@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { DealerBidPanel } from '@/components/dealer/DealerBidPanel';
 
-export default function Page({ params }: { params: { id: string } }) {
-  const lead = getLead(params.id);
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const lead = getLead(id);
 
   if (!lead) {
     return (
