@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { TopBar } from '@/components/TopBar';
 import { Footer } from '@/components/Footer';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Get Cash Offers for Your Car | Car Offer AI',
@@ -15,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`dark ${inter.variable}`}>
       <body>
         <div className="min-h-screen">
           <TopBar />
