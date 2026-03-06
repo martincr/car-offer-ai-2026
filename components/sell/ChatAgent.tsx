@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Chip } from '@/components/ui/Chip';
 import { Input } from '@/components/ui/Input';
-import { LeadDraft, Condition, ExistingOfferSource } from '@/lib/types';
+import { LeadDraft, Condition } from '@/lib/types';
 import { cleanVin, formatPhone, isNo, isProbablyPhone, isValidVin, isYes } from '@/lib/validators';
 import { PhotoPicker } from '@/components/sell/PhotoPicker';
 
