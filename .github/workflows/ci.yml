@@ -36,6 +36,9 @@ jobs:
       - name: Wait for server
         run: npx wait-on http://localhost:3000 --timeout 60000
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
       - name: E2E tests
         env:
           CI: true
