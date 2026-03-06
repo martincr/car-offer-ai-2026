@@ -4,9 +4,9 @@ export default function Page() {
   return (
     <main className="mx-auto max-w-md px-4 pb-10 pt-8">
       <div className="text-center">
-        <div className="text-3xl font-semibold tracking-tight text-zinc-900">Dealer access</div>
+        <div className="text-3xl font-semibold tracking-tight text-zinc-900">Get first access to motivated sellers in your area.</div>
         <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-          Get real seller leads. View on your phone. Bid or pass.
+          Motivated sellers submit their car details. You get notified, review the lead on your phone, and bid — or pass. No cold calls, no lot traffic.
         </p>
       </div>
 
@@ -14,9 +14,6 @@ export default function Page() {
         <DealerSignupForm />
       </div>
 
-      <div className="mt-8 text-xs text-zinc-500">
-        Price: <span className="font-medium text-zinc-800">$500 buyer access fee</span> to activate.
-      </div>
     </main>
   );
 }

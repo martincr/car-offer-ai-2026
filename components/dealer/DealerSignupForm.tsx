@@ -30,7 +30,7 @@ export function DealerSignupForm() {
       setSubmitted({
         ok: true,
         message:
-          'Got it. Next step: we’ll send you a payment link for the $500 buyer access fee, then you’re live.',
+          "You’re in line. We’ll text you a payment link — once confirmed, you’ll start receiving leads immediately.",
       });
     } catch (e: any) {
       setSubmitted({ ok: false, message: e?.message ?? 'Something went wrong.' });
@@ -49,13 +49,13 @@ export function DealerSignupForm() {
 
   return (
     <Card className="p-5">
-      <div className="text-lg font-semibold text-zinc-900">$500 buyer access</div>
-      <div className="mt-1 text-sm text-zinc-600">One simple form. No fluff.</div>
+      <div className="text-lg font-semibold text-zinc-900">Get access to local seller leads</div>
+      <div className="mt-1 text-sm text-zinc-600">Fill out the form and we'll send you a payment link to activate your account.</div>
 
       <div className="mt-4 grid gap-3">
         <Input
           label="Dealership name"
-          placeholder="Acme Auto"
+          placeholder="Acme Autos"
           value={dealershipName}
           onChange={e => setDealershipName(e.target.value)}
         />
@@ -95,7 +95,7 @@ export function DealerSignupForm() {
           />
           <span className="text-zinc-700">
             I agree to pay the{' '}
-            <span className="font-medium text-zinc-900">$500 buyer access fee</span> to activate.
+            <span className="font-medium text-zinc-900">one-time $500 buyer access fee</span> to activate.
           </span>
         </label>
 
@@ -112,7 +112,7 @@ export function DealerSignupForm() {
         ) : null}
 
         <div className="text-xs text-zinc-500">
-          Lean for now: we’ll text you a link to start viewing leads & bidding.
+          One-time fee. No monthly subscription. Cancel anytime.
         </div>
       </div>
     </Card>

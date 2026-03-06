@@ -22,9 +22,9 @@ export function StartCard() {
 
   return (
     <Card className="p-5">
-      <div className="text-sm font-medium text-zinc-900">Start with your VIN</div>
+      <div className="text-sm font-medium text-zinc-900">Start by entering your VIN</div>
       <div className="mt-1 text-xs text-zinc-500">
-        This is required so dealers can verify your car.
+        This is required so dealers can verify your car details.
       </div>
 
       <div className="mt-4">
@@ -55,7 +55,7 @@ export function StartCard() {
           I&apos;m a dealer
         </Button>
 
-        <div className="text-xs text-zinc-500">No pressure. No spam. Takes ~2 minutes.</div>
+        <div className="text-center text-xs text-zinc-500">No pressure. No spam. Takes ~2 minutes.</div>
       </div>
     </Card>
   );
