@@ -5,7 +5,7 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Car Offer AI',
-  description: 'Get a cash offer from real dealers. Fast.',
+  description: 'Get a cash offer from real car dealers. Fast.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

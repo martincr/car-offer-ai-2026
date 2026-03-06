@@ -24,7 +24,7 @@ export function StartCard() {
     <Card className="p-5">
       <div className="text-sm font-medium text-zinc-900">Start with your VIN</div>
       <div className="mt-1 text-xs text-zinc-500">
-        This is required so dealers can verify your exact car.
+        This is required so dealers can verify your car.
       </div>
 
       <div className="mt-4">

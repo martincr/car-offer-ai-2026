@@ -64,6 +64,21 @@ We use Playwright for end-to-end validation.
 - Avoid adding backend logic in the frontend; the API routes are minimal.
 - When adding new dependencies, update `docs/TECH_STACK.md` and `docs/CHANGELOG.md`.
 
+### UI component generator (shadcn)
+
+The project includes the `shadcn` CLI for scaffolding accessible Tailwind components.
+Run `npx shadcn@latest init` to re‑initialize the configuration, and then
+`npx shadcn@latest add <component>` to add new pieces (e.g. `button`,
+`dialog`, `menu`).
+
+Configuration lives in `components.json`; change the `style` property if you
+need a different design system (the default style supports all components).
+If the CLI complains about missing registry items, try switching to `default`
+style or run `npx shadcn@latest list` to see available components.
+
+Generated code is dropped under `components/ui` by default; feel free to
+move or customize as needed.
+
 ---
 
 Welcome aboard! If you have questions or run into issues, feel free to open an

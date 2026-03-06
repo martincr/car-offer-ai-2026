@@ -67,7 +67,7 @@ function Page() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "text-4xl font-semibold tracking-tight text-zinc-900",
-                        children: "Cash offers. Real dealers."
+                        children: "Cash offers from real dealers."
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
                         lineNumber: 8,
@@ -75,7 +75,7 @@ function Page() {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "mt-3 text-sm leading-relaxed text-zinc-600",
-                        children: "Enter your VIN, answer a few quick questions, and dealers bid for your car."
+                        children: "Enter your VIN, answer a few quick questions, and let dealers bid for your car."
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
                         lineNumber: 11,
@@ -102,7 +102,7 @@ function Page() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mt-6 text-center text-xs text-zinc-500",
                 children: [
-                    "Dealer?",
+                    "Are you a car dealer?",
                     ' ',
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                         className: "underline underline-offset-2",

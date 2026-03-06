@@ -4,3 +4,49 @@
 [00:03:02.889] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
 [00:03:04.136] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
 [00:06:34.672] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:15:21.803] Server  LOG     ✓ Compiled in 607ms
+[00:15:22.362] Browser ERROR   ./app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module 'tailwindcss-animate'
+Require stack:
+- /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts
+    [at Module._resolveFilename (node:internal/modules/cjs/loader:1455:15)]
+    [at require.resolve (node:internal/modules/helpers:163:19)]
+    [at _resolve (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:246378)]
+    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249092)]
+    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts:61:13]
+    [at evalModule (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:251913)]
+    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249841)]
+    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:53:30]
+    [at loadConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:55:6)]
+    [at getTailwindConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:74:116)]
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+[00:15:23.746] Server  LOG     ✓ Compiled in 707ms
+[00:15:23.812] Browser ERROR   ./app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module 'tailwindcss-animate'
+Require stack:
+- /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts
+    [at Module._resolveFilename (node:internal/modules/cjs/loader:1455:15)]
+    [at require.resolve (node:internal/modules/helpers:163:19)]
+    [at _resolve (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:246378)]
+    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249092)]
+    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/tailwind.config.ts:61:13]
+    [at evalModule (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:251913)]
+    [at jiti (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/jiti/dist/jiti.js:1:249841)]
+    [at /Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:53:30]
+    [at loadConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/load-config.js:55:6)]
+    [at getTailwindConfig (/Users/martincrockett/Documents/Developer/car-offer-ai-2026/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:74:116)]
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+[00:19:16.357] Server  WARN    Error: Route "/sell" used `searchParams.vin`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:20:06.647] Server  LOG     ✓ Compiled in 20ms
+[00:23:13.193] Server  LOG     ✓ Compiled in 122ms
+[00:23:13.249] Server  LOG     ✓ Compiled in 29ms

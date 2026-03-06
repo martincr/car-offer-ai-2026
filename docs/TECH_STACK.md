@@ -5,6 +5,7 @@ following core technologies:
 
 - **Next.js** 14.2.5 – framework for server-rendered React apps with file-based routing.
 - **React** 18.2.0 – UI library.
+- **shadcn CLI** – scaffolds accessible Tailwind/Radix components (configured via `components.json`).
 - **TypeScript** – statically typed JavaScript; `tsconfig.json` present.
 - **Tailwind CSS** 3.4.4 – utility-first styling framework (configured via `tailwind.config.ts` and `postcss.config.js`).
 - **ESLint** with `eslint-config-next` – linting for code quality.

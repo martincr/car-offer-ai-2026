@@ -26,6 +26,8 @@ The project uses a modern Next.js/React/TypeScript stack. See `docs/TECH_STACK.m
 
 For onboarding guidelines, see `docs/ONBOARDING.md`.
 
+The CI workflow is documented in `docs/CI.md`.
+
 ## What’s included (MVP fields)
 Required / important dealer fields captured:
 - VIN (required) + decoded basics (year/make/model/trim)

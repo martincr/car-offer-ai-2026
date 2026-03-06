@@ -31,10 +31,17 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 - Created `docs/ONBOARDING.md` outlining environment, commands, structure, and
   conventions for new contributors.
+- Updated onboarding to include guidance for the `shadcn` component generator.
+
+### Dependencies
+- Removed deprecated `shadcn-ui` package and updated `components.json` style
+  to `default` to avoid missing registry errors.
 
 ### CI
 - Added GitHub Actions workflow (`.github/workflows/ci.yml`) for linting, typechecking,
   building, Playwright E2E tests, and a Lighthouse performance check.
+- Created `docs/CI.md` explaining the workflow steps and suggesting future
+enhancements.
 
 ### Recommendations
 - Note to review Next.js migration guide after bumping to 16.x.
