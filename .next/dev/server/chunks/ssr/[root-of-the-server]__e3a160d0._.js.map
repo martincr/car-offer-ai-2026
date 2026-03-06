@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 20, "column": 0}, "map": {"version":3,"sources":["file:///Users/martincrockett/Documents/Developer/car-offer-ai-2026/app/sell/page.tsx"],"sourcesContent":["import { SellFlow } from '@/components/SellFlow';\n\nexport default function Page({ searchParams }: { searchParams: { vin?: string } }) {\n  return (\n    <main className=\"mx-auto max-w-md px-4 pb-28 pt-6\">\n      <SellFlow initialVin={searchParams.vin ?? ''} />\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS,KAAK,EAAE,YAAY,EAAsC;IAC/E,qBACE,8OAAC;QAAK,WAAU;kBACd,cAAA,8OAAC,mIAAQ;YAAC,YAAY,aAAa,GAAG,IAAI;;;;;;;;;;;AAGhD"}}]
-}
